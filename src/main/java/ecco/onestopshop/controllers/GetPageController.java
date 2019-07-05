@@ -15,4 +15,9 @@ public class GetPageController {
     public String test(){
         return "test";
     }
+
+    @RequestMapping("/learn")
+    public String learn(){
+        return "learn";
+    }
 }
