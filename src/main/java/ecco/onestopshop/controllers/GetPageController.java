@@ -20,4 +20,9 @@ public class GetPageController {
     public String learn(){
         return "learn";
     }
+
+    @RequestMapping("/registration")
+    public String registration(){
+        return "registration";
+    }
 }

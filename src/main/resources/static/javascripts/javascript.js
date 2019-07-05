@@ -66,7 +66,7 @@ $(document).ready(function(){
         };
 
         $.ajax({
-            url: "/registration/registration",
+            url: "/post/addUser",
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(dataToSend),

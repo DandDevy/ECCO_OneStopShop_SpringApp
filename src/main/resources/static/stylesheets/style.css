@@ -7,6 +7,10 @@ a {
   color: #040178; text-decoration: none;
 }
 
+input,textarea{
+    max-width: 300px;
+}
+
 
 a:hover{
     text-decoration: none;
