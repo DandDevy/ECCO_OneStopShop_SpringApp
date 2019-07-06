@@ -17,17 +17,18 @@ $(document).ready(function(){
      */
     $("#btn").click(function () {
         document.getElementById("test").innerHTML="<p>here iasdsadsads my div</p>";
-        $("#test").load("htmlLoads/test.txt", function () {
-            // alert("asd");
-        });
+        // $("#test").load("htmlLoads/test.txt", function ()
+        // {
+        //     alert("asd");
+        // });
 
     })
 
     /**
      * Default bootstrap alert.
      */
-    if(runInfoAlert)
-        $(".registration-response").load("htmlLoads/infoRegistration.txt");
+    // if(runInfoAlert)
+        // $(".registration-response").load("htmlLoads/infoRegistration.txt");
 
     /**
      * Post of email and password for registration
@@ -40,23 +41,24 @@ $(document).ready(function(){
         const pwdRepeat = $('#pwdRepeat').val();
         // if(safeUserRegistrationData(email,userName,pwd,pwdRepeat)){
         // safeUserRegistrationData(email,userName,pwd,pwdRepeat);
+        alert("email: " + email + "username: " + userName + " pwd: " + pwd + " pwdRepeat: " + pwdRepeat);
 
         if(pwd !== pwdRepeat){
-            $(".registration-response").load("htmlLoads/differentPasswordDangerWarning.txt");
+            // $(".registration-response").load("htmlLoads/differentPasswordDangerWarning.txt");
 
         } else if(userName.length <= USERNAME_LENGTH_MIN){
-            $(".registration-response").load("htmlLoads/tooShortUserName.txt");
+            // $(".registration-response").load("htmlLoads/tooShortUserName.txt");
 
         } else if(!email.includes("@")) {
-            $(".registration-response").load("htmlLoads/notAValidEmail.txt");
+            // $(".registration-response").load("htmlLoads/notAValidEmail.txt");
 
         }else if(pwd.length <= USERNAME_LENGTH_MIN){
-            $(".registration-response").load("htmlLoads/tooShortPassword.txt");
+            // $(".registration-response").load("htmlLoads/tooShortPassword.txt");
 
         } else {
-            $(".registration-response").load("htmlLoads/successfulRegistration.txt");
+            // $(".registration-response").load("htmlLoads/successfulRegistration.txt");
         }
-            // alert("email: " + email + "username: " + userName + " pwd: " + pwd + " pwdRepeat: " + pwdRepeat);
+
         // }
 
         let dataToSend ={
@@ -76,6 +78,11 @@ $(document).ready(function(){
     });
 
 });
+
+function alertTest() {
+    alert("Testing£");
+
+}
 
 function test() {
     console.log("asd")

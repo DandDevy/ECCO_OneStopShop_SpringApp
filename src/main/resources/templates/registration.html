@@ -13,7 +13,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <link rel='stylesheet' href="/stylesheets/style.css" />
-    <script type="text/javascript" src="/javascripts/javascript.js"></script>
+    <script type="text/javascript" src="test.js" th:src="test.js"></script>
+    <script type="text/javascript" src="register.js" th:src="@{register.js}"></script>
+<!--    <script type="text/javascript" src="/javascripts/javascript.js" th:src="@{/javascripts/javascript.js}"></script>-->
 </head>
 <body>
 <header>
@@ -99,7 +101,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default" id="registrationSubmitBtn">Submit</button>
+                            <button type="submit" class="btn btn-default" id="registrationSubmitBtn"> <!--onclick="registerUser()" --> Submit</button>
                         </div>
                     </div>
                 </form>
@@ -113,6 +115,10 @@
 
             </div>
         </div>
+
+    <div>
+        <button type="button" class="btn" onclick="test2()" >Basic</button>
+    </div>
 
 
 
