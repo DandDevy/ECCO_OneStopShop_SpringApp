@@ -41,7 +41,7 @@ $(document).ready(function(){
         const pwdRepeat = $('#pwdRepeat').val();
         // if(safeUserRegistrationData(email,userName,pwd,pwdRepeat)){
         // safeUserRegistrationData(email,userName,pwd,pwdRepeat);
-        alert("email: " + email + "username: " + userName + " pwd: " + pwd + " pwdRepeat: " + pwdRepeat);
+        // alert("email: " + email + "username: " + userName + " pwd: " + pwd + " pwdRepeat: " + pwdRepeat);
 
         if(pwd !== pwdRepeat){
             // $(".registration-response").load("htmlLoads/differentPasswordDangerWarning.txt");

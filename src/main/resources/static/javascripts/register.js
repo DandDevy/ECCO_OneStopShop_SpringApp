@@ -7,7 +7,7 @@ $(document).ready(function(){
         const pwdRepeat = $('#pwdRepeat').val();
         // if(safeUserRegistrationData(email,userName,pwd,pwdRepeat)){
         // safeUserRegistrationData(email,userName,pwd,pwdRepeat);
-        alert("email: " + email + "username: " + userName + " pwd: " + pwd + " pwdRepeat: " + pwdRepeat);
+        // alert("email: " + email + "username: " + userName + " pwd: " + pwd + " pwdRepeat: " + pwdRepeat);
 
         let dataToSend ={
             email: email,
@@ -22,6 +22,8 @@ $(document).ready(function(){
             data: JSON.stringify(dataToSend),
             success: (response) => writeResults(response)
 
+        }, function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
         });
     });
 
@@ -31,6 +33,6 @@ $(document).ready(function(){
         const pwd = $('#pwd').val();
         const pwdRepeat = $('#pwdRepeat').val();
 
-        alert("email: " + email + "username: " + userName + " pwd: " + pwd + " pwdRepeat: " + pwdRepeat);
+        // alert("email: " + email + "username: " + userName + " pwd: " + pwd + " pwdRepeat: " + pwdRepeat);
     }
 });
