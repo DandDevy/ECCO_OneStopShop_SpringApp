@@ -31,5 +31,5 @@ build/
 .vscode/
 
 ### Spring db ###
-bookings.db.mv.db
-bookings.
+users.db.mv.db
+users.
