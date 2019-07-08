@@ -12,11 +12,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/post")
-public class PostController {
+public class RegistrationController {
     private UserRepository userRepository;
 
     @Autowired
-    public PostController(UserRepository userRepository) {
+    public RegistrationController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
