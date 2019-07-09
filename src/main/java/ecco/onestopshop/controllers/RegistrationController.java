@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Controller for interaction through the server with post
+ */
 @RestController
 @RequestMapping(value = "/post")
 public class RegistrationController {
