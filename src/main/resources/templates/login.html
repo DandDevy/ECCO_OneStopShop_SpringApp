@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:pth="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>ECCO one stop shop</title>
@@ -13,7 +12,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <link rel='stylesheet' href="/stylesheets/style.css" />
-        <script type="text/javascript" src="/javascripts/javascript.js"></script>
+    <script type="text/javascript" src="test.js" th:src="test.js"></script>
+    <script type="text/javascript" src="javascripts/login.js"></script>
+    <!--    <script type="text/javascript" src="/javascripts/javascript.js" th:src="@{/javascripts/javascript.js}"></script>-->
 </head>
 <body>
 <header>
@@ -52,48 +53,38 @@
 
 </header>
 <main>
-
     <div class="container">
 
         <div class="jumbotron">
-            <a href="/learn">
-                <h1>Learn</h1>
-                <p>
-                    &#8226;  Acquire knowledge with the calculator get links and read documents
-                    for financial, technical and community support. Discover our beacons,
-                    and helpful and related guides. Get links to tools to set you up.
-                </p>
-            </a>
-        </div>
-    </div>
-    <div class="container">
-        <div class="jumbotron">
-            <a href="/test">
-                <h1>Get help to manage your project</h1>
-                <p>
-                    &#8226;  Receive help for how to get started; links to community building websites,
-                    financial aid websites for eco and energy projects, links to videos and guides
-                    on how these technologies work and advice on them. how to grow their community,
-                    how to manage tasks, how to get organised, how to get others excited.
-                </p>
-            </a>
+
+            <form id="login-form" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email:</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+                </div>
 
 
-        </div>
-    </div>
-
-
-    <div class="container">
-        <div class="jumbotron">
-            <a href="/test"><h1>Connect with others</h1>
-                <p>
-                    &#8226;  Do a progression evaluation and get linked to help websites for people who
-                    have already gone somewhat down the path of setting up their own ECCO project
-                    and want help on what to do next. Help them find out where they are weak
-                    and provide websites to where they may get help.
-                </p>
-            </a>
-
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Password:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label><input type="checkbox"> Remember me</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default" id="loginBtn">login</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </main>

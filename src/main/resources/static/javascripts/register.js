@@ -20,7 +20,7 @@ $(document).ready(function(){
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(dataToSend),
-            success: function(resultData) { alert("Save Complete") }
+            success: function(resultData) { alert("Save Complete  " + "email: " + email + "username: " + userName + " pwd: " + pwd + " pwdRepeat: " + pwdRepeat) }
 
          });
     });

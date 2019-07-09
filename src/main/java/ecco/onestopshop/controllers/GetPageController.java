@@ -25,4 +25,10 @@ public class GetPageController {
     public String registration(){
         return "registration";
     }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+    
 }
