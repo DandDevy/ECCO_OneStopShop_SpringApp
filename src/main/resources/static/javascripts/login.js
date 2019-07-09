@@ -1,5 +1,5 @@
 $(document).ready(function(){
     $("#loginBtn").click(function () {
-        alert("asd")
+        alert("login button and src ref to login.js WORKS!!!");
     });
 });
