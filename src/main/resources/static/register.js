@@ -19,12 +19,10 @@ $(document).ready(function(){
             url: "/post/addUser",
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify(dataToSend)
-            // success: (response) =>{ writeResults(response); alert("hellouuu")}
+            data: JSON.stringify(dataToSend),
+            success: function(resultData) { alert("Save Complete") }
 
-         // }, function(data, status){
-        //     alert("Data: " + data + "\nStatus: " + status);
-        });
+         });
     });
 
     function registerUser() {
