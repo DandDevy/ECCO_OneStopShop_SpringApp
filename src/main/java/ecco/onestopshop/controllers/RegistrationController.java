@@ -14,7 +14,7 @@ import java.util.List;
  * Controller for interaction through the server with post
  */
 @RestController
-@RequestMapping(value = "/post")
+@RequestMapping(value = "/registration")
 public class RegistrationController {
     private UserRepository userRepository;
 
