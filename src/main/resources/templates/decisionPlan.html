@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+    <title>ECCO one stop shop</title>
+
+    <!-- CSS (load bootstrap from a CDN) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel='stylesheet' href="/stylesheets/style.css" />
+        <script type="text/javascript" src="/javascripts/javascript.js"></script>
+</head>
+<body>
+	<section class="container">
+
+        <section class="jumbotron">
+        	<h1>Tech decision plan</h1>   
+        	<p>
+        		The tech decision plan is an online tool that helps you to find the correct renowable energy for your projects with only a couple of questions.
+        		<br>
+        		Please, if you want to use this tool just answer the following questions and press submit.
+        	</p>
+        	
+        	  
+            <form>
+				<fieldset th:each="question: ${questions}">
+				<h4 th:text="${question.questionText}"></h4>
+				<input type="radio" name="name" th:each="answer: ${question.answerList}" th:text="${answer.answerText}"> <br>
+				</fieldset>
+				<button type="submit"></button>
+			</form>	
+            
+        </section>
+    </section>
+	
+	
+</body>
+</html>
