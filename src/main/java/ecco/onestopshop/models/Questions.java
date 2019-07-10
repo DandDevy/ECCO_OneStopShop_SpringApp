@@ -1,11 +1,14 @@
 package ecco.onestopshop.models;
 
-public class QuestionMongo {
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Questions {
 
 		String question;
 		String[] answers;
 		
-		public QuestionMongo(String question, String[] answers)
+		public Questions(String question, String[] answers)
 		{
 			this.question = question;
 			this.answers = answers;

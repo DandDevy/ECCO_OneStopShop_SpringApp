@@ -6,6 +6,15 @@ public class Question
 {
 	private String questionText;
 	private ArrayList<Answer> answerList;
+	
+	public Question() {
+		
+	}
+	public Question(String questionText, ArrayList<Answer> answerList) {
+		this.questionText = questionText;
+		this.answerList = answerList;
+	}
+	
 	public String getQuestionText() {
 		return questionText;
 	}
@@ -18,10 +27,7 @@ public class Question
 	public void setAnswerList(ArrayList<Answer> answerList) {
 		this.answerList = answerList;
 	}
-	public Question(String questionText, ArrayList<Answer> answerList) {
-		this.questionText = questionText;
-		this.answerList = answerList;
-	}
+	
 	
 	
 }

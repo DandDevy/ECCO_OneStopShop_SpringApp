@@ -9,7 +9,6 @@ import ecco.onestopshop.components.QuestionsRepository;
 public class TechDecisionController 
 {
 	
-	@Autowired
-	private QuestionsRepository mongo;
+	
 
 }
