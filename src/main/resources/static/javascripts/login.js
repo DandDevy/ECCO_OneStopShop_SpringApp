@@ -15,7 +15,15 @@ $(document).ready(function(){
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(dataToSend),
-            success: function(resultData) { alert("Save Complete  " + "email: " + email + " pwd: " + pwd) }
+            success: function(resultData) {
+
+                if(resultData){
+                    window.open("/profil")
+                }
+                alert("Save Complete  " + "email: " + email + " pwd: " + pwd  + "result: "+ resultData);
+
+
+            }
 
         });
     });

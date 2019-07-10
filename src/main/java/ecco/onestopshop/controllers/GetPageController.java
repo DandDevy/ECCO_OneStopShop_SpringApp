@@ -30,5 +30,7 @@ public class GetPageController {
     public String login(){
         return "login";
     }
-    
+
+    @RequestMapping("/profil")
+    public String profil(){ return "profil";}
 }
