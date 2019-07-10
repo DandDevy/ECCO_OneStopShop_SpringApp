@@ -38,13 +38,29 @@ public class RegistrationController {
     public boolean checkUser(@RequestBody User userTryingToGetIn){
         boolean loginResponse = false;
         System.out.println("userTryingToGetIn: " + userTryingToGetIn);
-        User user = userRepository.findByEmailAndAndUsernameAndPassword(userTryingToGetIn.getEmail(), userTryingToGetIn.getUsername(), userTryingToGetIn.getPassword());
-        System.out.println("findByEmailAndAndUsernameAndPassword user : " + user);
+        User user = userRepository.findByEmailAndUsernameAndPassword(userTryingToGetIn.getEmail(), userTryingToGetIn.getUsername(), userTryingToGetIn.getPassword());
+        System.out.println("findByEmailAndUsernameAndPassword user : " + user);
         if(user != null){
             loginResponse = true;
         }
 
         return loginResponse;
     }
+
+    @RequestMapping(value = "/checkLogin", method = RequestMethod.POST)
+    public boolean checkLogin(@RequestBody User userTryingToGetIn){
+        boolean loginResponse = false;
+        System.out.println("userTryingToGetIn: " + userTryingToGetIn);
+        User user = userRepository.findByEmailAndPassword(userTryingToGetIn.getEmail(), userTryingToGetIn.getPassword());
+        System.out.println("findByEmailAndPassword user : " + user);
+        if(user != null){
+            loginResponse = true;
+        }
+
+        System.out.println("login response: " + loginResponse);
+        return loginResponse;
+    }
+
+
 
 }

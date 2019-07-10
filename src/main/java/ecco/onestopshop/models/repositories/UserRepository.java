@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByEmailEquals(String em);
-    User findByEmailAndAndUsernameAndPassword(String email, String username, String password);
+    User findByEmailAndUsernameAndPassword(String email, String username, String password);
+    User findByEmailAndPassword(String email, String password);
 
 }
