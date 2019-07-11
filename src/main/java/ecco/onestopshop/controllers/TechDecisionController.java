@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import ecco.onestopshop.components.QuestionsRepository;
 import ecco.onestopshop.models.Answer;
 import ecco.onestopshop.models.AnswerString;
 import ecco.onestopshop.models.BeginnersAnswer;
+import ecco.onestopshop.models.CounterEnergy;
 import ecco.onestopshop.models.Question;
 import ecco.onestopshop.models.QuestionsBeginner;
+import ecco.onestopshop.models.repositories.QuestionsRepository;
 
 @Controller
 public class TechDecisionController 
@@ -74,13 +75,14 @@ public class TechDecisionController
 	}
 	
 	@RequestMapping("/processBeginners")
-	public String processBeginnersPlan( @ModelAttribute BeginnersAnswer userSelection ) {
-		
-		String y = "3";
+	public String processBeginnersPlan( @ModelAttribute BeginnersAnswer userSelection, Model model ) {
+		CounterEnergy counters = new CounterEnergy();
 		for(AnswerString x: Arrays.asList(userSelection.getUserSelection())) {
-			System.out.println(x);
+			counters.addPoints(x.getTheAnswer());
 		};
-		return "index";
+		
+		model.addAttribute("correctEnergyType", counters.getAccurateEnergy());
+		return "decisionPlanEnergyType";
 	}
 
 }

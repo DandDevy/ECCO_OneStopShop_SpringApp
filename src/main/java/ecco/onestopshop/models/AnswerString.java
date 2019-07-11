@@ -1,7 +1,7 @@
 package ecco.onestopshop.models;
 
 public class AnswerString {
-	String theAnswer;
+	private String theAnswer;
 	
 	public AnswerString() {
 		

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class BeginnersAnswer 
 {
-	AnswerString[] userSelection;
+	private AnswerString[] userSelection;
 	
 	public BeginnersAnswer(AnswerString[] userSelection) {
 		this.userSelection = userSelection;

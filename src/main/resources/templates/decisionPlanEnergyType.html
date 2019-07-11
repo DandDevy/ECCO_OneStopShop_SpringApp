@@ -15,24 +15,14 @@
     <script type="text/javascript" src="/javascripts/javascript.js"></script>
 </head>
 <body>
-	<section class="container">
+		<section class="container">
 
         <section class="jumbotron">
         	<h1>Tech decision plan</h1>   
         	<p>
-        		The tech decision plan is an online tool that helps you to find what to do next in your renewable project.
-        		<br>
-        		Please, select beginner if you don't know what energy system to choose or you havent started yet, so we can help. Otherwise, chose advance
+        		<h4>Here is your result:</h4>
+        		You should go for the <span th:text="${correctEnergyType}"></span> energy system.
         	</p>
-        	
-        	  
-            <form  action="#" th:action="@{/selectLevel}"  method="post" >
-				<select name="level">
-					<option value="beginner">Beginner</option>
-					<option value="advance">Started User</option>
-				</select>
-				<button type="submit">Start</button>
-			</form>	
             
         </section>
     </section>

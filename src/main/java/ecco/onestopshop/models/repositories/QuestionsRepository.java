@@ -1,4 +1,4 @@
-package ecco.onestopshop.components;
+package ecco.onestopshop.models.repositories;
 
 
 import org.springframework.data.repository.CrudRepository;

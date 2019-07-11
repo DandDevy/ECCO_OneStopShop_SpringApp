@@ -17,7 +17,7 @@ import org.thymeleaf.expression.Lists;
 
 import ecco.onestopshop.models.Question;
 import ecco.onestopshop.models.QuestionsBeginner;
-import ecco.onestopshop.components.QuestionsRepository;
+import ecco.onestopshop.models.repositories.QuestionsRepository;
 import ecco.onestopshop.models.Answer;
 
 @Controller
