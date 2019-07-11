@@ -3,12 +3,12 @@ package ecco.onestopshop.models;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class Questions {
+public class QuestionsBeginner {
 
 		String question;
 		String[] answers;
 		
-		public Questions(String question, String[] answers)
+		public QuestionsBeginner(String question, String[] answers)
 		{
 			this.question = question;
 			this.answers = answers;

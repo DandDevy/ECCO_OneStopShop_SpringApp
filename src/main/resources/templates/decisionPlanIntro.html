@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
+	<meta charset="UTF-8" />
     <title>ECCO one stop shop</title>
 
     <!-- CSS (load bootstrap from a CDN) -->
@@ -26,19 +26,15 @@
         	</p>
         	
         	  
-            <form action="#" th:action="@{/processBeginners}" th:object="${userSelection}"  method="post" >
-				<fieldset th:each="question: ${questions}">
-				<h4 th:text="${question.questionText}"></h4>
-				<input type="radio" th:name="${questions.indexOf(question)}" th:each="answer: ${question.answerList}" th:value="${answer.getRadioButtonCode()}"
-				 th:text="${answer.answerText}" th:field="*{userSelection[__${questions.indexOf(question)}__].theAnswer}"> <br>
-				</fieldset>
-				<span ></span>
-				<button type="submit">Check it</button>
+            <form  action="#" th:action="@{/selectLevel}"  method="post" >
+				<select name="level">
+					<option value="beginner">Beginner</option>
+					<option value="advance">Started User</option>
+				</select>
+				<button type="submit">Start</button>
 			</form>	
             
         </section>
     </section>
-	
-	
 </body>
 </html>

@@ -36,5 +36,9 @@ public class Answer
 		this.points = points;
 	}
 	
+	public String getRadioButtonCode() {
+		return energyType + "@" + points;
+	}
+	
 
 }
