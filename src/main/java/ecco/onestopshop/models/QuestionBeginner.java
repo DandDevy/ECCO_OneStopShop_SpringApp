@@ -2,15 +2,15 @@ package ecco.onestopshop.models;
 
 import java.util.ArrayList;
 
-public class Question 
+public class QuestionBeginner 
 {
 	private String questionText;
 	private ArrayList<Answer> answerList;
 	
-	public Question() {
+	public QuestionBeginner() {
 		
 	}
-	public Question(String questionText, ArrayList<Answer> answerList) {
+	public QuestionBeginner(String questionText, ArrayList<Answer> answerList) {
 		this.questionText = questionText;
 		this.answerList = answerList;
 	}

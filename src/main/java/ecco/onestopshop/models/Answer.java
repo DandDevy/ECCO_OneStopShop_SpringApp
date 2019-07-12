@@ -3,12 +3,12 @@ package ecco.onestopshop.models;
 public class Answer 
 {
 	String answerText;
-	String energyType;
+	String extraInfo;
 	int points;
 	
-	public Answer(String answerText, String energyType, int points) {
+	public Answer(String answerText, String extraInfo, int points) {
 		this.answerText = answerText;
-		this.energyType = energyType;
+		this.extraInfo = extraInfo;
 		this.points = points;
 	}
 
@@ -20,12 +20,12 @@ public class Answer
 		this.answerText = answerText;
 	}
 
-	public String getEnergyType() {
-		return energyType;
+	public String getExtraInfo() {
+		return extraInfo;
 	}
 
-	public void setEnergyType(String energyType) {
-		this.energyType = energyType;
+	public void setExtraInfo(String extraInfo) {
+		this.extraInfo = extraInfo;
 	}
 
 	public int getPoints() {
@@ -36,8 +36,11 @@ public class Answer
 		this.points = points;
 	}
 	
-	public String getRadioButtonCode() {
-		return energyType + "@" + points;
+	public String getRadioButtonBeginnerCode() {
+		return extraInfo + "@" + points;
+	}
+	public String getRadioButtonAdvanceCode() {
+		return extraInfo ;
 	}
 	
 

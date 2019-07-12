@@ -29,7 +29,7 @@
             <form action="#" th:action="@{/processBeginners}" th:object="${userSelection}"  method="post" >
 				<fieldset th:each="question: ${questions}">
 				<h4 th:text="${question.questionText}"></h4>
-				<input type="radio" th:name="${questions.indexOf(question)}" th:each="answer: ${question.answerList}" th:value="${answer.getRadioButtonCode()}"
+				<input type="radio" th:name="${questions.indexOf(question)}" th:each="answer: ${question.answerList}" th:value="${answer.getRadioButtonBeginnerCode()}"
 				 th:text="${answer.answerText}" th:field="*{userSelection[__${questions.indexOf(question)}__].theAnswer}"> <br>
 				</fieldset>
 				<span ></span>

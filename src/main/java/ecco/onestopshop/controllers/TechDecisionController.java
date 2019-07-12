@@ -7,6 +7,8 @@ import java.util.stream.StreamSupport;
 
 import javax.security.auth.x500.X500Principal;
 
+import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
+import org.omg.CORBA.Current;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,16 +20,22 @@ import ecco.onestopshop.models.Answer;
 import ecco.onestopshop.models.AnswerString;
 import ecco.onestopshop.models.BeginnersAnswer;
 import ecco.onestopshop.models.CounterEnergy;
-import ecco.onestopshop.models.Question;
+import ecco.onestopshop.models.QuestionAdvance;
+import ecco.onestopshop.models.QuestionBeginner;
+import ecco.onestopshop.models.QuestionsAdvance;
 import ecco.onestopshop.models.QuestionsBeginner;
-import ecco.onestopshop.models.repositories.QuestionsRepository;
+import ecco.onestopshop.models.repositories.QuestionsAdvanceRepository;
+import ecco.onestopshop.models.repositories.QuestionsBeginnerRepository;
 
 @Controller
 public class TechDecisionController 
 {
 
 	@Autowired
-	private QuestionsRepository mongo;
+	private QuestionsBeginnerRepository mongoBeginner;
+	
+	@Autowired
+	private QuestionsAdvanceRepository mongoAdvance;
 	
 
 	@RequestMapping("/selectLevel")
@@ -38,7 +46,7 @@ public class TechDecisionController
 			case "beginner":
 				return getBeginnersDecisionPlan(model);
 			case "advance":
-				return getBeginnersDecisionPlan(model);
+				return getAdvanceDecisionPlan(model);
 			default:
 				return getBeginnersDecisionPlan(model);
 		}
@@ -50,12 +58,12 @@ public class TechDecisionController
 	
 	
 	private String getBeginnersDecisionPlan(Model model) {
-		ArrayList<QuestionsBeginner> questionsMongo = new ArrayList<QuestionsBeginner>(StreamSupport.stream(mongo.findAll().spliterator(),false).collect(Collectors.toList()));
+		ArrayList<QuestionsBeginner> questionsMongo = new ArrayList<QuestionsBeginner>(StreamSupport.stream(mongoBeginner.findAll().spliterator(),false).collect(Collectors.toList()));
     	
-    	ArrayList<Question> questions = new ArrayList<Question>();
+    	ArrayList<QuestionBeginner> questions = new ArrayList<QuestionBeginner>();
 		
 		questionsMongo.forEach( questionFromMongo ->{
-			Question tempQuestion = new Question();
+			QuestionBeginner tempQuestion = new QuestionBeginner();
 			tempQuestion.setQuestionText(questionFromMongo.getQuestion());
 			ArrayList<Answer> tempAnswers = new ArrayList<Answer>();
 			Arrays.asList(questionFromMongo.getAnswers()).forEach( answer -> {
@@ -72,6 +80,22 @@ public class TechDecisionController
     	model.addAttribute("userSelection", new BeginnersAnswer(new AnswerString[questions.size()]));
 		model.addAttribute("questions", questions);		
     	return "decisionPlan";
+	}
+	
+	private String getAdvanceDecisionPlan(Model model) {
+		
+		ArrayList<QuestionsAdvance> questionOfMongo = new ArrayList<QuestionsAdvance>(StreamSupport.stream(mongoAdvance.findAll().spliterator(),false ).collect(Collectors.toList()));
+		ArrayList<QuestionAdvance> questions = new ArrayList<QuestionAdvance>();
+		questionOfMongo.forEach(questionMongo -> {
+			ArrayList<Answer> tempAnswers = new ArrayList<Answer>(Arrays.asList(questionMongo.getAnswer()).stream()
+			.map(answerMongo -> answerMongo.split("@"))
+			.map(splitted ->(splitted.length==1)?new Answer(splitted[0],"",0):new Answer(splitted[0],splitted[1],0))
+			.collect(Collectors.toList()));
+			questions.add(new QuestionAdvance(questionMongo.getQuestion(), tempAnswers, questionMongo.getPosition()));
+		});
+		model.addAttribute("questions", questions);
+		return "";
+		
 	}
 	
 	@RequestMapping("/processBeginners")

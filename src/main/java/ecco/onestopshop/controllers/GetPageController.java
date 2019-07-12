@@ -15,9 +15,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.thymeleaf.expression.Lists;
 
-import ecco.onestopshop.models.Question;
+import ecco.onestopshop.models.QuestionBeginner;
 import ecco.onestopshop.models.QuestionsBeginner;
-import ecco.onestopshop.models.repositories.QuestionsRepository;
+import ecco.onestopshop.models.repositories.QuestionsBeginnerRepository;
 import ecco.onestopshop.models.Answer;
 
 @Controller
