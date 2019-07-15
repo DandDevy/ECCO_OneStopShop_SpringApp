@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8" />
+  <meta charset="UTF-8" />
     <title>ECCO one stop shop</title>
 
     <!-- CSS (load bootstrap from a CDN) -->
@@ -12,10 +12,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <link rel='stylesheet' href="/stylesheets/style.css" />
+    <link rel='stylesheet' href="/stylesheets/decisionPlan.css" />
     <script type="text/javascript" src="/javascripts/javascript.js"></script>
 </head>
+
 <body>
-	
 	<header>
     
         <div class="container">
@@ -54,18 +55,35 @@
 	<section class="container">
 
         <section class="jumbotron">
-        	<h1>Tech decision plan</h1>   
+        	<h1>Tech decision plan: Beginners</h1>   
         	<p>
-        		<h4>Here is your result:</h4>
-        		You should go for the <span th:text="${correctEnergyType}"></span> energy system.
+        		The tech decision plan is an online tool that helps you to find the correct renewable energy for your projects with only a couple of questions.
+        		<br>
+        		Please, if you want to use this tool just answer the following questions and press submit.
         	</p>
+        	
+        	  
+            <form action="#" th:action="@{/processBeginners}" th:object="${userSelection}"  method="post" >
+				<fieldset th:each="question: ${questions}">
+				<h4 th:text="${question.questionText}"></h4>
+				<input type="radio" th:name="${questions.indexOf(question)}" th:each="answer: ${question.answerList}" th:value="${answer.getRadioButtonBeginnerCode()}"
+				 th:text="${answer.answerText}" th:field="*{userSelection[__${questions.indexOf(question)}__].theAnswer}"> <br>
+				</fieldset>
+				<span ></span>
+				<button type="submit">Check it</button>
+			</form>	
             
         </section>
+         <form class="goBackButton" action="#" th:action="@{/}"  method="post">
+        		<button type="submit">Home</button>
+        </form>
+        
     </section>
-    </main>
-    <footer>
+	
+	</main>
+	<footer>
     <hr>
-    	<p class="text-center text-muted">© ECCO project</p>
-	</footer>
+    <p class="text-center text-muted">© ECCO project</p>
+</footer>
 </body>
 </html>

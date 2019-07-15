@@ -2,6 +2,7 @@ package ecco.onestopshop.controllers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -79,7 +80,7 @@ public class TechDecisionController
     	
     	model.addAttribute("userSelection", new BeginnersAnswer(new AnswerString[questions.size()]));
 		model.addAttribute("questions", questions);		
-    	return "decisionPlan";
+    	return "decisionPlanBeginner";
 	}
 	
 	private String getAdvanceDecisionPlan(Model model) {
@@ -93,8 +94,10 @@ public class TechDecisionController
 			.collect(Collectors.toList()));
 			questions.add(new QuestionAdvance(questionMongo.getQuestion(), tempAnswers, questionMongo.getPosition()));
 		});
+		
+		questions.sort(Comparator.comparing(QuestionAdvance::getPosition));
 		model.addAttribute("questions", questions);
-		return "";
+		return "decisionPlanAdvance";
 		
 	}
 	

@@ -12,11 +12,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <link rel='stylesheet' href="/stylesheets/style.css" />
+    <link rel='stylesheet' href="/stylesheets/decisionPlan.css" />
     <script type="text/javascript" src="/javascripts/javascript.js"></script>
+    <script type="text/javascript" src="/javascripts/decisionPlanAdvance.js"></script>
 </head>
 <body>
-	
-	<header>
+<header>
     
         <div class="container">
             <div class="page-header">
@@ -50,22 +51,45 @@
             </div>
         </nav>
     </header>
-	<main>
+<main>
 	<section class="container">
 
-        <section class="jumbotron">
-        	<h1>Tech decision plan</h1>   
+        <section class="jumbotron" id="intro"> 
+        
+        	<h2>Tech decision plan: Advance</h1>   
         	<p>
-        		<h4>Here is your result:</h4>
-        		You should go for the <span th:text="${correctEnergyType}"></span> energy system.
-        	</p>
-            
+        		The tech decision plan is an online tool that helps you to find what to do next in your renewable project.
+        		<br>
+        		Answer the next couple of question in order to know what to do next
+        		<br>
+        		<button id="startButton">Start</button>
+        	</p>    
+        </section>     
+        
+        <section  class="jumbotron" th:each="question: ${questions}" th:id="${'question' + question.getPosition()}" style="display:none">
+     		<h2 th:text="${'Tech decision plan: Advance (Question' + question.getPosition()+')'}"></h2>  
+        	<h4 th:text="${question.getQuestionText()}"></h4>
+        	<p>
+        	     <input type="radio" th:name="${'question' + question.getPosition()}" th:each="answer: ${question.answerList}" th:value="${answer.getExtraInfo()}"
+				 th:text="${answer.getAnswerText()}"> <br>
+				 <button class="questionButton" th:id="${'questionButton' + question.getPosition()}">Check it</button>
+			</p>
+			
         </section>
+        
+        
+        <section id="nextStepAnswer" class="jumbotron" style="display:none">
+        	<h1>What you should do next?</h1>
+        	<p>
+        		
+        	</p>
+        	
+        </section>
+        <form class="goBackButton" action="#" th:action="@{/}"  method="post">
+        		<button type="submit">Home</button>
+        </form>
+        
     </section>
-    </main>
-    <footer>
-    <hr>
-    	<p class="text-center text-muted">© ECCO project</p>
-	</footer>
+</main>
 </body>
 </html>
