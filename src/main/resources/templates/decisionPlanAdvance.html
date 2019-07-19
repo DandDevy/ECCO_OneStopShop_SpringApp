@@ -67,7 +67,7 @@
         </section>     
         
         <section  class="jumbotron" th:each="question: ${questions}" th:id="${'question' + question.getPosition()}" style="display:none">
-     		<h2 th:text="${'Tech decision plan: Advance (Question' + question.getPosition()+')'}"></h2>  
+     		<h2 th:text="${'Tech decision plan: Advance Questions'}"></h2>  
         	<h4 th:text="${question.getQuestionText()}"></h4>
         	<p>
         	     <input type="radio" th:name="${'question' + question.getPosition()}" th:each="answer: ${question.answerList}" th:value="${answer.getExtraInfo()}"

@@ -10,7 +10,7 @@
 
  function startButtonListener(){
     document.getElementById("intro").style.display="none";
-    document.getElementById("question1").style.display="block";
+    document.getElementById("intro").nextElementSibling.style.display="block";
 }
 
 function getNextQuestion(){
@@ -23,12 +23,11 @@ function getNextQuestion(){
 }
 function listener(theButton){
     var questionId = theButton.parentElement.parentElement.id;
-    var questionNumber = questionId.replace("question","");
     var questionPanel = document.getElementById(questionId);
     questionPanel.style.display = "none";
-    if($("input[name='"+questionId+"']:checked").val() == "")
+    if($("input[name='"+questionId+"']:checked").val() == "" ||$("input[name='"+questionId+"']:checked").val() == "null"  )
     {
-        loadNextQuestion(questionNumber);
+        loadNextQuestion(questionId);
     }
     else
     {
@@ -40,9 +39,9 @@ function listener(theButton){
     }
 }
 
-function loadNextQuestion(questionNumber)
+function loadNextQuestion(questionId)
 {
-    var nextQuestion = document.getElementById("question"+ (parseInt(questionNumber)+1));
-    nextQuestion.style.display = "block";
+    var currentQuestion = document.getElementById(questionId);
+    currentQuestion.nextElementSibling.style.display = "block";
 }
 
