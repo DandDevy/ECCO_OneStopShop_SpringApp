@@ -1,5 +1,10 @@
 package ecco.onestopshop.models;
 
+/**
+ * 
+ * @author Eduardo Lamas Suárez
+ * Class used to hold the answers and make the managing and handing easier
+ */
 public class Answer 
 {
 	String answerText;

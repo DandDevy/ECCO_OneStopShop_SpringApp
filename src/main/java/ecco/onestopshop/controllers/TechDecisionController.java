@@ -27,7 +27,11 @@ import ecco.onestopshop.models.QuestionsAdvance;
 import ecco.onestopshop.models.QuestionsBeginner;
 import ecco.onestopshop.models.repositories.QuestionsAdvanceRepository;
 import ecco.onestopshop.models.repositories.QuestionsBeginnerRepository;
-
+/**
+ * 
+ * @author Eduardo Lamas Suárez
+ * Controller for the tech decision plan, a class with all the mappings needed
+ */
 @Controller
 public class TechDecisionController 
 {
@@ -39,6 +43,12 @@ public class TechDecisionController
 	private QuestionsAdvanceRepository mongoAdvance;
 	
 
+	/**
+	 * Mapping for the tech decision plan level selector
+	 * @param model
+	 * @param level, level selected by the user
+	 * @return the next page to load that will be decided dynamically
+	 */
 	@RequestMapping("/selectLevel")
     public String techDecisionPlan(Model model, @RequestParam String level) {
 
@@ -57,7 +67,13 @@ public class TechDecisionController
 	
 	
 	
-	
+	/**
+	 * Method used if the user selects beginner level
+	 * It will load dynamically all the beginners questions stored in the database
+	 * and pass them to the beginners html
+	 * @param model
+	 * @return the next page to load
+	 */
 	private String getBeginnersDecisionPlan(Model model) {
 		ArrayList<QuestionsBeginner> questionsMongo = new ArrayList<QuestionsBeginner>(StreamSupport.stream(mongoBeginner.findAll().spliterator(),false).collect(Collectors.toList()));
     	
@@ -83,6 +99,13 @@ public class TechDecisionController
     	return "decisionPlanBeginner";
 	}
 	
+	/**
+	 * Method used if the user selects advance level
+	 * It will load dynamically all the advance questions stored in the database
+	 * and pass them to the beginners html
+	 * @param model
+	 * @return the next page to load
+	 */
 	private String getAdvanceDecisionPlan(Model model) {
 		
 		ArrayList<QuestionsAdvance> questionOfMongo = new ArrayList<QuestionsAdvance>(StreamSupport.stream(mongoAdvance.findAll().spliterator(),false ).collect(Collectors.toList()));
@@ -101,6 +124,13 @@ public class TechDecisionController
 		
 	}
 	
+	/**
+	 * Mapping for processing the form of the beginners question, so it decides which 
+	 * energy type should the user go for
+	 * @param userSelection, The user selected answer
+	 * @param model
+	 * @return the next page to load
+	 */
 	@RequestMapping("/processBeginners")
 	public String processBeginnersPlan( @ModelAttribute BeginnersAnswer userSelection, Model model ) {
 		CounterEnergy counters = new CounterEnergy();

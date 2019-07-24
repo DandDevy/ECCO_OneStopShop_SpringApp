@@ -2,6 +2,13 @@ package ecco.onestopshop.models;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
+/**
+ * 
+ * @author Eduardo Lamas Suárez
+ * Document representation needed for accessing to the advacne question collection
+ *
+ */
 @Document
 public class QuestionsAdvance 
 {

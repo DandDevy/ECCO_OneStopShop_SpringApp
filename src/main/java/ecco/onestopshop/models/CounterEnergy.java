@@ -6,6 +6,14 @@ import java.util.HashMap;
 import org.hibernate.mapping.Set;
 
 
+/**
+ * 
+ * @author Eduardo Lamas Suárez
+ * Class used to process the answers selected by the user
+ * and being able to predict which energy type would fit him better
+ * 
+ *
+ */
 public class CounterEnergy 
 {
 	private String[] ENERGY_TYPE = new String[]{"Wind", "PV", "Hydro", "Manure","Chips", "Sawdust"};	
@@ -19,6 +27,10 @@ public class CounterEnergy
 		}
 	}
 	
+	/**
+	 * Method that adds poing to an energy type counter
+	 * @param replayFromUser, String with the response of the user, coded
+	 */
 	public void addPoints(String replayFromUser) 
 	{
 		String[] splittedReply = replayFromUser.split("@");
@@ -31,6 +43,10 @@ public class CounterEnergy
 		
 	}
 	
+	/**
+	 * Method that returns which energy type is more accurate for the user
+	 * @return String with the energy type
+	 */
 	public String getAccurateEnergy() 
 	{
 		String energyType = "";

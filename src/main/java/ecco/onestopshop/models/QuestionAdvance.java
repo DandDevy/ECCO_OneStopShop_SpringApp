@@ -2,6 +2,12 @@ package ecco.onestopshop.models;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Eduardo Lamas Suárez
+ * Class made with the aim of holding an advance question of the database
+ *
+ */
 public class QuestionAdvance extends QuestionBeginner
 {
 	int position;

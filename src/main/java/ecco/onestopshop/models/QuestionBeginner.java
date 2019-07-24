@@ -2,6 +2,12 @@ package ecco.onestopshop.models;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Eduardo Lamas Suárez
+ * Class made with the purpose of holding and managing the beginner questions
+ *
+ */
 public class QuestionBeginner 
 {
 	private String questionText;

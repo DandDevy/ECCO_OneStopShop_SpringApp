@@ -2,6 +2,13 @@ package ecco.onestopshop.models;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
+/**
+ * 
+ * @author Eduardo Lamas Suárez
+ * Class made as a document representation of the beginner question collection
+ *
+ */
 @Document
 public class QuestionsBeginner {
 

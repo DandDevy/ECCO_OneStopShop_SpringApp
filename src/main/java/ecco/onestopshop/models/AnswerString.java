@@ -1,5 +1,11 @@
 package ecco.onestopshop.models;
 
+/**
+ * 
+ * @author Eduardo Lamas Suárez
+ * Simple class to hold answer string 
+ *
+ */
 public class AnswerString {
 	private String theAnswer;
 	
