@@ -56,4 +56,7 @@ public class GetPageController {
 
     @RequestMapping("/profil")
     public String profil(){ return "profil";}
+
+    @RequestMapping("/financial")
+    public String financial(){return "financial";}
 }
