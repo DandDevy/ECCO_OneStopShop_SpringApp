@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Optional;
 
 /**
  * services to the user repository
@@ -25,4 +26,19 @@ public class UserService {
     }
 
 
+    public void addUser(User user) {
+        neo4jUserRepository.addUser(user.getEmail(), user.getUsername(), user.getPassword());
+    }
+
+    public boolean IsUserUnique(User user) {
+        boolean res = true;
+
+        Collection<User> users = neo4jUserRepository.getByUsername(user.getUsername());
+        System.out.println("users with these credentials are : " + users);
+
+        if(users.size() > 0)
+            res = false;
+
+        return res;
+    }
 }

@@ -1,5 +1,8 @@
 package ecco.onestopshop.controllers;
 
+import ecco.onestopshop.models.User;
+import ecco.onestopshop.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -8,6 +11,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/registration")
 public class RegistrationController {
+
+    @Autowired
+    UserService userService;
+
+
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    public void addUser(@RequestBody User user){
+        if(userService.IsUserUnique(user))
+            userService.addUser(user);
+    }
 //    private UserRepository userRepository;
 //
 //    @Autowired
@@ -32,8 +45,8 @@ public class RegistrationController {
 //        System.out.println("user to add " + user);
 //    }
 //
-//    @RequestMapping(value = "/checkUser", method = RequestMethod.POST)
-//    public boolean checkUser(@RequestBody User userTryingToGetIn){
+//    @RequestMapping(value = "/IsUserUnique", method = RequestMethod.POST)
+//    public boolean IsUserUnique(@RequestBody User userTryingToGetIn){
 //        boolean loginResponse = false;
 //        System.out.println("userTryingToGetIn: " + userTryingToGetIn);
 //        User user = userRepository.findByEmailAndUsernameAndPassword(userTryingToGetIn.getEmail(), userTryingToGetIn.getUsername(), userTryingToGetIn.getPassword());
