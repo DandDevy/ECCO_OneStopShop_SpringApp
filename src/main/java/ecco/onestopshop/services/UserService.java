@@ -20,36 +20,46 @@ public class UserService {
     @Autowired
     Neo4jUserRepository neo4jUserRepository;
 
+    /**
+     * gets all the users on the system
+     * @return Collection<User>
+     */
     public Collection<User> getAllUsers(){
 
         return neo4jUserRepository.getAllUsers();
     }
 
 
+    /**
+     * Adds user to the system.
+     * @param user
+     */
     public void addUser(User user) {
         neo4jUserRepository.addUser(user.getEmail(), user.getUsername(), user.getPassword());
     }
 
+    /**
+     * checks if any user on the system has the same credentials.
+     * @param user
+     * @return boolean
+     */
     public boolean IsUserUnique(User user) {
         boolean res = true;
 
-        Collection<User> users = neo4jUserRepository.getByUsername(user.getUsername());
-        System.out.println("users with these credentials are : " + users);
-
-        if(users.size() > 0)
+        User userFound = neo4jUserRepository.getByUsername(user.getUsername());
+        if(userFound != null)
             res = false;
 
         return res;
     }
 
-    public boolean isLoginCorrect(User userTryingToLogin) {
-        boolean res =false;
 
-        return res;
-
-    }
-
-    public User getAllUserDetails(User userTryingToLogin) {
-        return null;
+    /**
+     * gets a user off the system who has the same login data.
+     * @param userTryingToLogin
+     * @return
+     */
+    public User getUserbyLogin(User userTryingToLogin) {
+        return neo4jUserRepository.getByLogin(userTryingToLogin.getEmail(), userTryingToLogin.getPassword());
     }
 }

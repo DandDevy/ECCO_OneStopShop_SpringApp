@@ -20,6 +20,10 @@ public interface Neo4jUserRepository extends Neo4jRepository<User, Long> {
     void addUser(String email, String username, String password);
 
 
-    @Query("MATCH (u:User{username:{0}}) RETURN u")
-    Collection<User> getByUsername(String username);
+    @Query("MATCH (u:User{username:{0}}) RETURN u Limit 1")
+    User getByUsername(String username);
+
+
+    @Query("MATCH (u:User{email:{0}, password:{1}}) RETURN u Limit 1")
+    User getByLogin(String email, String password);
 }

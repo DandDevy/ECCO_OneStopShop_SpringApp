@@ -8,32 +8,40 @@ import ecco.onestopshop.models.User;
 import ecco.onestopshop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping(value = "/userLogin")
+@Controller
 public class LoginController {
     private User userLoggedIn;
+
+    private boolean userCanEnter;
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/profil", method = RequestMethod.POST)
+    @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
+    @ResponseBody
     public boolean login(@RequestBody User userTryingToLogin){
 
-        boolean res = true;
+        boolean res = false;
 
-        if(userService.isLoginCorrect(userTryingToLogin)){
-            userLoggedIn = userService.getAllUserDetails(userTryingToLogin);
+        userLoggedIn = userService.getUserbyLogin(userTryingToLogin);
+        if(userLoggedIn != null){
+            userCanEnter = true;
             res = true;
+
         }
 
         System.out.println("\n--- User wishing to login: " + userTryingToLogin +"   -----\n");
 
         return res;
+    }
+
+    @RequestMapping("/profil")
+    public String profil(){
+        if(userCanEnter)
+            return "profil";
+        else
+            return "login";
     }
 }

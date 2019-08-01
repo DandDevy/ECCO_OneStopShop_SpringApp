@@ -1,3 +1,7 @@
+/*
+ * written by Daniel Ashcroft
+ */
+
 package ecco.onestopshop.controllers;
 
 import ecco.onestopshop.models.User;
@@ -17,6 +21,10 @@ public class RegistrationController {
     UserService userService;
 
 
+    /**
+     * adds user to the system, if the user is unique
+     * @param user
+     */
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public void addUser(@RequestBody User user){
         if(userService.IsUserUnique(user))

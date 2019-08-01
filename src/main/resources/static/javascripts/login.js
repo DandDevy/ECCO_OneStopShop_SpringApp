@@ -13,7 +13,7 @@ $(document).ready(function(){
         };
 
         $.ajax({
-            url: "/userLogin/profil",
+            url: "/userLogin",
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(dataToSend),
