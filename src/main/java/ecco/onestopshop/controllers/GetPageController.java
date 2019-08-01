@@ -9,10 +9,13 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import ecco.onestopshop.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.thymeleaf.expression.Lists;
 
 import ecco.onestopshop.models.QuestionBeginner;
@@ -44,18 +47,17 @@ public class GetPageController {
         return "registration";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login")
     public String login(){
+
         return "login";
     }
-    
+
     @RequestMapping("/decisionPlanIntro")
     public String getDecisionPlanIntroPage() {
     	return "decisionPlanIntro";
     }
 
-    @RequestMapping("/profil")
-    public String profil(){ return "profil";}
 
     @RequestMapping("/financial")
     public String financial(){return "financial";}

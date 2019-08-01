@@ -41,4 +41,15 @@ public class UserService {
 
         return res;
     }
+
+    public boolean isLoginCorrect(User userTryingToLogin) {
+        boolean res =false;
+
+        return res;
+
+    }
+
+    public User getAllUserDetails(User userTryingToLogin) {
+        return null;
+    }
 }
