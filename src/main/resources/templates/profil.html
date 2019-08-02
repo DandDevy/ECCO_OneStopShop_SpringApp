@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <title>ECCO one stop shop</title>
@@ -12,8 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <link rel='stylesheet' href="/stylesheets/style.css" />
-    <script type="text/javascript" src="test.js" th:src="test.js"></script>
-    <script type="text/javascript" src="javascripts/register.js"></script>
+<!--    <script type="text/javascript" src="test.js" th:src="test.js"></script>-->
+    <script type="text/javascript" src="javascripts/profil.js"></script>
     <!--    <script type="text/javascript" src="/javascripts/javascript.js" th:src="@{/javascripts/javascript.js}"></script>-->
 </head>
 <body>
@@ -53,12 +53,51 @@
 
 </header>
 <main>
-    <h1>Welcome</h1>
-    <div class="container">
-        <div class="jumbotron">
-            <p>hi</p>
-        </div>
-    </div>
+
+    <section class="container">
+        <section class="jumbotron">
+            <h1 id="userWelcomeHeader">Welcome to your profile</h1>
+        </section>
+    </section>
+
+    <section class="container">
+        <section class="jumbotron">
+            <h3>Adjust your profile to match with others and projects</h3>
+
+            <br>
+
+            <p>select your country.</p>
+            <form id="userLocation">
+                <label class="radio-inline">
+                    <input type="radio" name="location"value="Ireland" checked>Ireland
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="location" value="France">France
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="location" value="Germany">Germany
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="location" value="Belgium">Belgium
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="location" value="Netherlands">Netherlands
+                </label>
+            </form>
+
+
+
+                <br>
+
+            <form id="communityLevel">
+
+            </form>
+
+            <button type="button" class="btn btn-info" id="profilConfirmationBtn">Confirm</button>
+            </section>
+        </section>
+    </section>
+    <p id="resTest"></p>
 
 </main>
 <footer>
