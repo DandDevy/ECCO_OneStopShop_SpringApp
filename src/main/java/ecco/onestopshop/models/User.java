@@ -1,14 +1,19 @@
 package ecco.onestopshop.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
+//import javax.persistence.Id;
 
-@Entity
+import org.neo4j.ogm.annotation.GraphId;
+import org.neo4j.ogm.annotation.NodeEntity;
+
+//@Entity
+@NodeEntity
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GraphId
     private long id;
 
     private String username, email, password;
