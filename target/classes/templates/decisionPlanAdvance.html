@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <title>ECCO one stop shop</title>
+
+    <!-- CSS (load bootstrap from a CDN) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel='stylesheet' href="/stylesheets/style.css" />
+    <link rel='stylesheet' href="/stylesheets/decisionPlan.css" />
+    <script type="text/javascript" src="/javascripts/javascript.js"></script>
+    <script type="text/javascript" src="javascripts/decisionPlanAdvance.js"></script>
+</head>
+<body>
+<header>
+    
+        <div class="container">
+            <div class="page-header">
+                <a href="/"><h1>ECCO one stop shop</h1></a>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="home"><a href="/">HOME</a></li>
+                        <li id="about_us"><a href="test">ABOUT US</a></li>
+                        <li id="resources"><a href="test">RESOURCES</a></li>
+                        <li id="techDecision"><a href="decisionPlanIntro">TECH DECISION PLAN</a>
+                        <li id="login"><a href="login">LOGIN</a></li>
+                        <li id="register"><a href="registration">REGISTER</a></li>
+                    </ul>
+                    <!--	  <div class="image-header">-->
+                    <!--          <a href="/index"><img src=''/></a>-->
+                    <!--	</div>-->
+                </div>
+            </div>
+        </nav>
+    </header>
+<main>
+	<section class="container">
+
+        <section class="jumbotron" id="intro"> 
+        
+        	<h2>Tech decision plan: Advance</h1>   
+        	<p>
+        		The tech decision plan is an online tool that helps you to find what to do next in your renewable project.
+        		<br>
+        		Answer the next couple of question in order to know what to do next
+        		<br>
+        		<button id="startButton">Start</button>
+        	</p>    
+        </section>     
+        
+        <section  class="jumbotron" th:each="question: ${questions}" th:id="${'question' + question.getPosition()}" style="display:none">
+     		<h2 th:text="${'Tech decision plan: Advance Questions'}"></h2>  
+        	<h4 th:text="${question.getQuestionText()}"></h4>
+        	<p>
+        	     <input type="radio" th:name="${'question' + question.getPosition()}" th:each="answer: ${question.answerList}" th:value="${answer.getExtraInfo()}"
+				 th:text="${answer.getAnswerText()}"> <br>
+				 <button class="questionButton" th:id="${'questionButton' + question.getPosition()}">Check it</button>
+			</p>
+			
+        </section>
+        
+        
+        <section id="nextStepAnswer" class="jumbotron" style="display:none">
+        	<h1>What you should do next?</h1>
+        	<p>
+        		
+        	</p>
+        	
+        </section>
+        <form class="goBackButton" action="#" th:action="@{/}"  method="post">
+        		<button type="submit">Home</button>
+        </form>
+        
+    </section>
+</main>
+</body>
+</html>

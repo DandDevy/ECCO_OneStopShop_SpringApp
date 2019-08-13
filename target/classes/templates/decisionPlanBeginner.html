@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+    <title>ECCO one stop shop</title>
+
+    <!-- CSS (load bootstrap from a CDN) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel='stylesheet' href="/stylesheets/style.css" />
+    <link rel='stylesheet' href="/stylesheets/decisionPlan.css" />
+    <script type="text/javascript" src="/javascripts/javascript.js"></script>
+</head>
+
+<body>
+	<header>
+    
+        <div class="container">
+            <div class="page-header">
+                <a href="/"><h1>ECCO one stop shop</h1></a>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="home"><a href="/">HOME</a></li>
+                        <li id="about_us"><a href="test">ABOUT US</a></li>
+                        <li id="resources"><a href="test">RESOURCES</a></li>
+                        <li id="techDecision"><a href="decisionPlanIntro">TECH DECISION PLAN</a>
+                        <li id="login"><a href="login">LOGIN</a></li>
+                        <li id="register"><a href="registration">REGISTER</a></li>
+                    </ul>
+                    <!--	  <div class="image-header">-->
+                    <!--          <a href="/index"><img src=''/></a>-->
+                    <!--	</div>-->
+                </div>
+            </div>
+        </nav>
+    </header>
+	<main>
+	<section class="container">
+
+        <section class="jumbotron">
+        	<h1>Tech decision plan: Beginners</h1>   
+        	<p>
+        		The tech decision plan is an online tool that helps you to find the correct renewable energy for your projects with only a couple of questions.
+        		<br>
+        		Please, if you want to use this tool just answer the following questions and press submit.
+        	</p>
+        	
+        	  
+            <form action="#" th:action="@{/processBeginners}" th:object="${userSelection}"  method="post" >
+				<fieldset th:each="question: ${questions}">
+				<h4 th:text="${question.questionText}"></h4>
+				<input type="radio" th:name="${questions.indexOf(question)}" th:each="answer: ${question.answerList}" th:value="${answer.getRadioButtonBeginnerCode()}"
+				 th:text="${answer.answerText}" th:field="*{userSelection[__${questions.indexOf(question)}__].theAnswer}"> <br>
+				</fieldset>
+				<span ></span>
+				<button type="submit">Check it</button>
+			</form>	
+            
+        </section>
+         <form class="goBackButton" action="#" th:action="@{/}"  method="post">
+        		<button type="submit">Home</button>
+        </form>
+        
+    </section>
+	
+	</main>
+	<footer>
+    <hr>
+    <p class="text-center text-muted">© ECCO project</p>
+</footer>
+</body>
+</html>

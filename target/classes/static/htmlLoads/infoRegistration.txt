@@ -1,0 +1,3 @@
+<div class="alert alert-info">
+    <strong>Info!</strong> email, username, and password of minimum 8 characters required.
+  </div>

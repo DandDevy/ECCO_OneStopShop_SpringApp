@@ -1,0 +1,18 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #040178; text-decoration: none;
+}
+
+/* I am hoping to get the text-fields to stop going so wide */
+/*input,textarea{*/
+/*    max-width: 300px;*/
+/*}*/
+
+
+a:hover{
+    text-decoration: none;
+}

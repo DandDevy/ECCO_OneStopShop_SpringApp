@@ -1,0 +1,3 @@
+<div class="alert alert-danger">
+    <strong>That didn't work!</strong> Your username is too short.
+  </div>
