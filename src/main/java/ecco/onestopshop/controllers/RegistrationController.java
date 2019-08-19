@@ -1,9 +1,14 @@
+/*
+ * written by Daniel Ashcroft
+ */
+
 package ecco.onestopshop.controllers;
 
 import ecco.onestopshop.models.User;
 import ecco.onestopshop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Controller for interaction through the server with post
@@ -16,11 +21,17 @@ public class RegistrationController {
     UserService userService;
 
 
+    /**
+     * adds user to the system, if the user is unique
+     * @param user
+     */
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public void addUser(@RequestBody User user){
         if(userService.IsUserUnique(user))
             userService.addUser(user);
     }
+
+//
 //    private UserRepository userRepository;
 //
 //    @Autowired

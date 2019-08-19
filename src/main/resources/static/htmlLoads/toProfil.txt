@@ -1,0 +1,7 @@
+<div class="container">
+        <a href="/profil">
+            <div class="jumbotron">
+                <h1>Go To Profile</h1>
+            </div>
+        </a>
+    </div>
