@@ -18,8 +18,9 @@ $(document).ready(function(){
             contentType: 'application/json',
             data: JSON.stringify(dataToSend),
             success: function(resultData) {
-
+                console.log("results:", resultData)
                 if(resultData){
+
                     $("main").load("/htmlLoads/toProfil.txt")
                 }
 
