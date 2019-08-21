@@ -6,6 +6,7 @@ package ecco.onestopshop.controllers;
 
 import ecco.onestopshop.models.UserData.Location;
 import ecco.onestopshop.models.UserData.User;
+import ecco.onestopshop.models.UserData.MyList;
 import ecco.onestopshop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ import org.springframework.ui.Model;
 import java.util.ArrayList;
 
 @Controller
-public class LoginController {
+public class LoggedInUserController {
     private User userLoggedIn;
 
     private boolean userCanEnter;
@@ -56,6 +57,14 @@ public class LoginController {
         userService.setUserLocation(userLoggedIn, location);
 
         System.out.println("location user has selected: " + location);
+    }
+
+    @RequestMapping(value = "/setUserTechnology", method = RequestMethod.POST)
+    @ResponseBody
+    public void updateUserTechnology(@RequestBody MyList myList){
+
+        userService.setUserTechnologies(myList, userLoggedIn);
+        System.out.println("technologies the user is using: " + myList);
     }
 
     @RequestMapping(value = "/profilData", method = RequestMethod.POST)

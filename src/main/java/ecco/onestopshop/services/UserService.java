@@ -6,6 +6,7 @@ package ecco.onestopshop.services;
 
 import ecco.onestopshop.models.UserData.Location;
 import ecco.onestopshop.models.UserData.User;
+import ecco.onestopshop.models.UserData.MyList;
 import ecco.onestopshop.models.repositories.Neo4jUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -78,4 +79,15 @@ public class UserService {
         }
 
     }
+
+    public void setUserTechnologies(MyList technologies, User userLoggedIn) {
+
+        neo4jUserRepository.clearTechnologies(userLoggedIn.getUsername());
+
+        if (technologies.getLength() > 0) {
+            for (int i = 0; i < technologies.getLength(); i++)
+                neo4jUserRepository.setUserTechnology(technologies.getString(i), userLoggedIn.getUsername());
+
+            }
+        }
 }

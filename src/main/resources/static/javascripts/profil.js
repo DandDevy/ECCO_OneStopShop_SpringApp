@@ -40,6 +40,36 @@ $(document).ready(function (message){
 
     });
 
+    $("#userTechConfirmationBtn").click(function (message) {
+        const userTechForm = document.forms[1];
+        let tech = [];
+        for(let i =0; i < userTechForm.length; i++){
+            if(userTechForm[i].checked){
+                tech[i] = userTechForm[i].value;
+            }
+        }
+
+        dataTosend = {
+            technologies:tech
+        }
+
+        $.ajax({
+            url: "/setUserTechnology",
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(dataTosend),
+            success: function(resultData) {
+
+                if(resultData){
+                    alert("update success");
+                }
+
+            }
+
+        });
+
+    });
+
 
     $("#profilConfirmationBtn").click(function (message) {
 
