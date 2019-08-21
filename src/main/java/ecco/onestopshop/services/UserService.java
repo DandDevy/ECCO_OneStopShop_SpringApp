@@ -4,13 +4,13 @@
 
 package ecco.onestopshop.services;
 
-import ecco.onestopshop.models.User;
+import ecco.onestopshop.models.UserData.Location;
+import ecco.onestopshop.models.UserData.User;
 import ecco.onestopshop.models.repositories.Neo4jUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.Optional;
 
 /**
  * services to the user repository
@@ -55,11 +55,27 @@ public class UserService {
 
 
     /**
-     * gets a user off the system who has the same login data.
+     * gets a user from the system who has the same login data.
      * @param userTryingToLogin
      * @return
      */
     public User getUserbyLogin(User userTryingToLogin) {
         return neo4jUserRepository.getByLogin(userTryingToLogin.getEmail(), userTryingToLogin.getPassword());
+    }
+
+    /**
+     * sets the users location.
+     * @param userLoggedIn
+     * @param location
+     */
+    public void setUserLocation(User userLoggedIn, Location location) {
+
+        neo4jUserRepository.removeUserLocation(userLoggedIn.getUsername());
+
+        // if the user has selected something besides none
+        if(!location.getName().equals("none")) {
+            neo4jUserRepository.setUserLocation(userLoggedIn.getUsername(), location.getName());
+        }
+
     }
 }

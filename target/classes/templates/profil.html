@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <title>ECCO one stop shop</title>
@@ -12,8 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <link rel='stylesheet' href="/stylesheets/style.css" />
-    <script type="text/javascript" src="test.js" th:src="test.js"></script>
-    <script type="text/javascript" src="javascripts/register.js"></script>
+<!--    <script type="text/javascript" src="test.js" th:src="test.js"></script>-->
+    <script type="text/javascript" src="javascripts/profil.js"></script>
     <!--    <script type="text/javascript" src="/javascripts/javascript.js" th:src="@{/javascripts/javascript.js}"></script>-->
 </head>
 <body>
@@ -53,12 +53,75 @@
 
 </header>
 <main>
-    <h1>Welcome</h1>
-    <div class="container">
-        <div class="jumbotron">
-            <p>hi</p>
-        </div>
-    </div>
+
+    <section class="container">
+        <section class="jumbotron">
+            <h1 id="userWelcomeHeader">Welcome to your profile</h1>
+        </section>
+    </section>
+
+    <section class="container">
+        <section class="jumbotron">
+            <h2>Adjust your profile to match with others and projects</h2>
+
+            <br>
+
+            <p>select your country.</p>
+            <form id="userLocation">
+                <label class="radio-inline">
+                    <input type="radio" name="location"value="Ireland" checked>Ireland
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="location" value="France">France
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="location" value="Germany">Germany
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="location" value="Belgium">Belgium
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="location" value="Netherlands">Netherlands
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="location"value="none" checked>none
+                </label>
+            </form>
+
+            <br>
+            <button type="button" class="btn btn-info" id="locationConfirmationBtn">Confirm location</button>
+
+                <br> <br>
+
+            <p>select which renewable technology your project is already using.</p>
+            <form id="userTech">
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="renewableTechnology" value="wind">wind
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="renewableTechnology" value="solar">solar
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="renewableTechnology" value="biogas">biogas
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="renewableTechnology" value="hydro">hydro
+                </label>
+            </form>
+
+                <br> <br>
+
+            <p>Pick which renewable technologies you would like your project to use, and their rank of which you would like to focus on.</p>
+            <form id="technologyInterest">
+<!--                give vertical checkboxes of tech then horizontal radio from 0 to 5-->
+
+            </form>
+
+            <button type="button" class="btn btn-info" id="profilConfirmationBtn">Confirm</button>
+            </section>
+        </section>
+    </section>
+    <p id="resTest"></p>
 
 </main>
 <footer>

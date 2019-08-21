@@ -4,7 +4,7 @@ $(document).ready(function(){
         const email = $('#email').val();
         const pwd = $('#pwd').val();
         const userName = "";
-        // alert("login button and src ref to login.js WORKS!!! \n\n email: " + email + " pwd: " + pwd);
+        console.log("login button and src ref to login.js WORKS!!! \n\n email: " + email + " pwd: " + pwd);
 
         let dataToSend ={
             email: email,

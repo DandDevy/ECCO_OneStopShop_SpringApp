@@ -1,7 +1,5 @@
 package ecco.onestopshop.components;
 
-import ecco.onestopshop.models.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

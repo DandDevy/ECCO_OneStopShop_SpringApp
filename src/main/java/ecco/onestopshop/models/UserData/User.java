@@ -1,4 +1,8 @@
-package ecco.onestopshop.models;
+/*
+ * written by Daniel Ashcroft
+ */
+
+package ecco.onestopshop.models.UserData;
 
 //import javax.persistence.Entity;
 //import javax.persistence.GeneratedValue;

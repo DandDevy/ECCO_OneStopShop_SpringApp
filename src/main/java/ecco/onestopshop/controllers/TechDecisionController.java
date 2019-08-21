@@ -6,10 +6,6 @@ import java.util.Comparator;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import javax.security.auth.x500.X500Principal;
-
-import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
-import org.omg.CORBA.Current;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,14 +13,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import ecco.onestopshop.models.Answer;
-import ecco.onestopshop.models.AnswerString;
-import ecco.onestopshop.models.BeginnersAnswer;
-import ecco.onestopshop.models.CounterEnergy;
-import ecco.onestopshop.models.QuestionAdvance;
-import ecco.onestopshop.models.QuestionBeginner;
-import ecco.onestopshop.models.QuestionsAdvance;
-import ecco.onestopshop.models.QuestionsBeginner;
+import ecco.onestopshop.models.TechDecisionAndProgressionEvaluationData.Answer;
+import ecco.onestopshop.models.TechDecisionAndProgressionEvaluationData.AnswerString;
+import ecco.onestopshop.models.TechDecisionAndProgressionEvaluationData.BeginnersAnswer;
+import ecco.onestopshop.models.TechDecisionAndProgressionEvaluationData.CounterEnergy;
+import ecco.onestopshop.models.TechDecisionAndProgressionEvaluationData.QuestionAdvance;
+import ecco.onestopshop.models.TechDecisionAndProgressionEvaluationData.QuestionBeginner;
+import ecco.onestopshop.models.TechDecisionAndProgressionEvaluationData.QuestionsAdvance;
+import ecco.onestopshop.models.TechDecisionAndProgressionEvaluationData.QuestionsBeginner;
 import ecco.onestopshop.models.repositories.QuestionsAdvanceRepository;
 import ecco.onestopshop.models.repositories.QuestionsBeginnerRepository;
 /**

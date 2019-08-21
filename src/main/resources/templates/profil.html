@@ -62,7 +62,7 @@
 
     <section class="container">
         <section class="jumbotron">
-            <h3>Adjust your profile to match with others and projects</h3>
+            <h2>Adjust your profile to match with others and projects</h2>
 
             <br>
 
@@ -83,13 +83,37 @@
                 <label class="radio-inline">
                     <input type="radio" name="location" value="Netherlands">Netherlands
                 </label>
+                <label class="radio-inline">
+                    <input type="radio" name="location"value="none" checked>none
+                </label>
             </form>
 
+            <br>
+            <button type="button" class="btn btn-info" id="locationConfirmationBtn">Confirm location</button>
 
+                <br> <br>
 
-                <br>
+            <p>select which renewable technology your project is already using.</p>
+            <form id="userTech">
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="renewableTechnology" value="wind">wind
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="renewableTechnology" value="solar">solar
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="renewableTechnology" value="biogas">biogas
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="renewableTechnology" value="hydro">hydro
+                </label>
+            </form>
 
-            <form id="communityLevel">
+                <br> <br>
+
+            <p>Pick which renewable technologies you would like your project to use, and their rank of which you would like to focus on.</p>
+            <form id="technologyInterest">
+<!--                give vertical checkboxes of tech then horizontal radio from 0 to 5-->
 
             </form>
 

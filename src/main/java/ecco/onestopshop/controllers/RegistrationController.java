@@ -4,11 +4,10 @@
 
 package ecco.onestopshop.controllers;
 
-import ecco.onestopshop.models.User;
+import ecco.onestopshop.models.UserData.User;
 import ecco.onestopshop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Controller for interaction through the server with post

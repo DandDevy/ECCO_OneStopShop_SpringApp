@@ -1,4 +1,8 @@
-package ecco.onestopshop.models;
+/*
+ * written by Daniel Ashcroft
+ */
+
+package ecco.onestopshop.models.TechDecisionAndProgressionEvaluationData;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

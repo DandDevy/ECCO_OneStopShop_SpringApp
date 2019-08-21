@@ -1,27 +1,7 @@
 package ecco.onestopshop.controllers;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import ecco.onestopshop.models.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.thymeleaf.expression.Lists;
-
-import ecco.onestopshop.models.QuestionBeginner;
-import ecco.onestopshop.models.QuestionsBeginner;
-import ecco.onestopshop.models.repositories.QuestionsBeginnerRepository;
-import ecco.onestopshop.models.Answer;
 
 @Controller
 public class GetPageController {

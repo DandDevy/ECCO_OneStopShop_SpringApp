@@ -1,4 +1,10 @@
-package ecco.onestopshop.models;
+/*
+ * written by Daniel Ashcroft
+ */
+
+package ecco.onestopshop.models.TechDecisionAndProgressionEvaluationData;
+
+import ecco.onestopshop.models.TechDecisionAndProgressionEvaluationData.Answer;
 
 import java.util.ArrayList;
 
