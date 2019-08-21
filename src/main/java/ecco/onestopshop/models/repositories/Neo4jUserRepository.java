@@ -32,9 +32,9 @@ public interface Neo4jUserRepository extends Neo4jRepository<User, Long> {
     @Query("MATCH (u:User{username:{0}}), (u)-[r:LIVES_IN]->(:Location) DELETE r")
     void removeUserLocation(String username);
 
-    @Query("")
-    void setUserTechnology(String string, String userLoggedIn);
+    @Query("MATCH (u:User{name:{1}}) MERGE (u)-[:USES]->(r:RenewableTechnology{name:{0}})")
+    void setUserTechnology(String renewableTechName, String userLoggedInName);
 
-    @Query("")
+    @Query("MATCH (w:User{username:{0}}), (w)-[r:USES]->(:RenewableTechnology) DELETE r")
     void clearTechnologies(String username);
 }
