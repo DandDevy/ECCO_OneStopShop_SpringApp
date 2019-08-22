@@ -6,37 +6,34 @@
  * written by Daniel Ashcroft
  */
 
-package ecco.onestopshop.models.UserData;
+/*
+ * written by Daniel Ashcroft
+ */
+
+package ecco.onestopshop.models;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
 /**
- * User location for recommendations
+ * A renewable technology class that can be used as a graph node as well and for recommendations.
  */
 @NodeEntity
-public class Location {
+public class RenewableTechnology {
     @GraphId
     private long id;
+
     private String name;
 
-    public Location() {
+    public RenewableTechnology() {
     }
 
-    public Location(String name) {
+    public RenewableTechnology(String name) {
         this.name = name;
     }
 
-    public Location(long id, String name) {
+    public RenewableTechnology(long id, String name) {
         this.id = id;
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 
@@ -48,9 +45,17 @@ public class Location {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
-        return "Location{" +
+        return "RenewableTechnology{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

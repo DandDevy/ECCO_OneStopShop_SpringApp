@@ -4,9 +4,9 @@
 
 package ecco.onestopshop.controllers;
 
-import ecco.onestopshop.models.UserData.Location;
-import ecco.onestopshop.models.UserData.User;
-import ecco.onestopshop.models.UserData.MyList;
+import ecco.onestopshop.models.Location;
+import ecco.onestopshop.models.RenewableTechnology;
+import ecco.onestopshop.models.User;
 import ecco.onestopshop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,12 +59,19 @@ public class LoggedInUserController {
         System.out.println("location user has selected: " + location);
     }
 
+    @RequestMapping(value = "/setUserTechnologies", method = RequestMethod.POST)
+    @ResponseBody
+    public void updateUserTechnology(@RequestBody ArrayList<RenewableTechnology> technologies){
+
+        userService.setUserTechnologies(technologies, userLoggedIn);
+        System.out.println("technologies the user is using: " + technologies);
+    }
     @RequestMapping(value = "/setUserTechnology", method = RequestMethod.POST)
     @ResponseBody
-    public void updateUserTechnology(@RequestBody MyList myList){
+    public void updateUserTechnology(@RequestBody RenewableTechnology technology){
 
-        userService.setUserTechnologies(myList, userLoggedIn);
-        System.out.println("technologies the user is using: " + myList);
+        userService.setUserTechnology(technology, userLoggedIn);
+        System.out.println("technologies the user is using: " + technology);
     }
 
     @RequestMapping(value = "/profilData", method = RequestMethod.POST)

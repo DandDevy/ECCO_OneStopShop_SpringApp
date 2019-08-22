@@ -42,31 +42,52 @@ $(document).ready(function (message){
 
     $("#userTechConfirmationBtn").click(function (message) {
         const userTechForm = document.forms[1];
-        let tech = [];
+        let tech = {};
         for(let i =0; i < userTechForm.length; i++){
             if(userTechForm[i].checked){
-                tech[i] = userTechForm[i].value;
+                $.ajax({
+                    url: "/setUserTechnology",
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        name: userTechForm[i].value
+                    }),
+                    success: function(resultData) {
+
+                        if(resultData){
+                            alert("update success");
+                        }
+
+                    }
+
+                });
+                tech[i] = {
+                    name: userTechForm[i].value
+                };
+
             }
         }
 
-        dataTosend = {
+
+
+        const dataTosend = {
             technologies:tech
         }
 
-        $.ajax({
-            url: "/setUserTechnology",
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(dataTosend),
-            success: function(resultData) {
-
-                if(resultData){
-                    alert("update success");
-                }
-
-            }
-
-        });
+        // $.ajax({
+        //     url: "/setUserTechnology",
+        //     type: 'POST',
+        //     contentType: 'application/json',
+        //     data: JSON.stringify(tech),
+        //     success: function(resultData) {
+        //
+        //         if(resultData){
+        //             alert("update success");
+        //         }
+        //
+        //     }
+        //
+        // });
 
     });
 

@@ -2,7 +2,19 @@
  * written by Daniel Ashcroft
  */
 
-package ecco.onestopshop.models.UserData;
+/*
+ * written by Daniel Ashcroft
+ */
+
+/*
+ * written by Daniel Ashcroft
+ */
+
+/*
+ * written by Daniel Ashcroft
+ */
+
+package ecco.onestopshop.models;
 
 //import javax.persistence.Entity;
 //import javax.persistence.GeneratedValue;

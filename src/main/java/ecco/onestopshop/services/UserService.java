@@ -4,13 +4,14 @@
 
 package ecco.onestopshop.services;
 
-import ecco.onestopshop.models.UserData.Location;
-import ecco.onestopshop.models.UserData.User;
-import ecco.onestopshop.models.UserData.MyList;
+import ecco.onestopshop.models.Location;
+import ecco.onestopshop.models.RenewableTechnology;
+import ecco.onestopshop.models.User;
 import ecco.onestopshop.models.repositories.Neo4jUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -80,14 +81,23 @@ public class UserService {
 
     }
 
-    public void setUserTechnologies(MyList technologies, User userLoggedIn) {
+    public void setUserTechnologies(ArrayList<RenewableTechnology> technologies, User userLoggedIn) {
 
         neo4jUserRepository.clearTechnologies(userLoggedIn.getUsername());
 
-        if (technologies.getLength() > 0) {
-            for (int i = 0; i < technologies.getLength(); i++)
-                neo4jUserRepository.setUserTechnology(technologies.getString(i), userLoggedIn.getUsername());
+        if (technologies.size() > 0) {
+            for (int i = 0; i < technologies.size(); i++){
+                neo4jUserRepository.setUserTechnology(technologies.get(i).getName(), userLoggedIn.getUsername());
 
             }
         }
+    }
+
+    public void setUserTechnology(RenewableTechnology technology, User userLoggedIn) {
+        neo4jUserRepository.clearTechnologies(userLoggedIn.getUsername());
+
+        if(technology != null)
+            System.out.println("User uses:" + technology.getName() + " is called" + userLoggedIn.getUsername());
+            neo4jUserRepository.setUserTechnology(technology.getName(), userLoggedIn.getUsername());
+    }
 }
