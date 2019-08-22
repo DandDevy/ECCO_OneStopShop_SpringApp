@@ -66,12 +66,29 @@ public class LoggedInUserController {
         userService.setUserTechnologies(technologies, userLoggedIn);
         System.out.println("technologies the user is using: " + technologies);
     }
+
+    @RequestMapping(value = "/setUserTechnologyToNone", method = RequestMethod.POST)
+    @ResponseBody
+    public void updateUserTechnologyToNone(@RequestBody RenewableTechnology technology){
+
+        userService.setUserTechnologyToNone(userLoggedIn);
+        System.out.println("technologies the user is using: " + technology);
+    }
+
     @RequestMapping(value = "/setUserTechnology", method = RequestMethod.POST)
     @ResponseBody
     public void updateUserTechnology(@RequestBody RenewableTechnology technology){
 
         userService.setUserTechnology(technology, userLoggedIn);
         System.out.println("technologies the user is using: " + technology);
+    }
+
+    @RequestMapping(value = "/matchUser")
+    @ResponseBody
+    public String matchUser(){
+        ArrayList<User> users = userService.matchUser(userLoggedIn);
+
+        return "asdasdasd";
     }
 
     @RequestMapping(value = "/profilData", method = RequestMethod.POST)

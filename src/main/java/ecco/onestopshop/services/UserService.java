@@ -100,4 +100,13 @@ public class UserService {
             System.out.println("User uses:" + technology.getName() + " is called" + userLoggedIn.getUsername());
             neo4jUserRepository.setUserTechnology(technology.getName(), userLoggedIn.getUsername());
     }
+
+    public void setUserTechnologyToNone(User userLoggedIn) {
+        neo4jUserRepository.clearTechnologies(userLoggedIn.getUsername());
+    }
+
+    public ArrayList<User> matchUser(User userLoggedIn) {
+
+        return neo4jUserRepository.matchUser(userLoggedIn.getUsername());
+    }
 }

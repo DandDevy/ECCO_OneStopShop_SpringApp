@@ -8,6 +8,7 @@ import ecco.onestopshop.models.User;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public interface Neo4jUserRepository extends Neo4jRepository<User, Long> {
@@ -37,4 +38,7 @@ public interface Neo4jUserRepository extends Neo4jRepository<User, Long> {
 
     @Query("MATCH (w:User{username:{0}}), (w)-[r:USES]->(:RenewableTechnology) DELETE r")
     void clearTechnologies(String username);
+
+    @Query("")
+    ArrayList<User> matchUser(String username);
 }

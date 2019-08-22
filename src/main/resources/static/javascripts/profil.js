@@ -43,8 +43,11 @@ $(document).ready(function (message){
     $("#userTechConfirmationBtn").click(function (message) {
         const userTechForm = document.forms[1];
         let tech = {};
+
+        let noTechSelected = true;
         for(let i =0; i < userTechForm.length; i++){
             if(userTechForm[i].checked){
+                noTechSelected = false;
                 $.ajax({
                     url: "/setUserTechnology",
                     type: 'POST',
@@ -61,11 +64,33 @@ $(document).ready(function (message){
                     }
 
                 });
+
+
+
                 tech[i] = {
                     name: userTechForm[i].value
                 };
 
             }
+        }
+
+        if(noTechSelected){
+            $.ajax({
+                url: "/setUserTechnologyToNone",
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    name: "none"
+                }),
+                success: function(resultData) {
+
+                    if(resultData){
+                        alert("update success");
+                    }
+
+                }
+
+            });
         }
 
 
@@ -91,6 +116,23 @@ $(document).ready(function (message){
 
     });
 
+
+    $("#matchUser").click(function (message) {
+        $.ajax({
+            url: "/matchUser",
+            type: 'GET',
+
+            success: function(resultData) {
+
+
+                alert("update success res:" + resultData);
+
+
+            }
+
+        });
+
+    });
 
     $("#profilConfirmationBtn").click(function (message) {
 
@@ -135,5 +177,6 @@ $(document).ready(function (message){
 
         });
     });
+
 });
 
