@@ -86,7 +86,7 @@ public class LoggedInUserController {
     @RequestMapping(value = "/matchUser")
     @ResponseBody
     public String matchUser(){
-        ArrayList<User> users = userService.matchUser(userLoggedIn);
+//        ArrayList<User> users = userService.matchUser(userLoggedIn);
 
         return "asdasdasd";
     }

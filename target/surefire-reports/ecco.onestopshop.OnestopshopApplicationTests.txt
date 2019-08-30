@@ -1,10 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ecco.onestopshop.OnestopshopApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.885 s <<< FAILURE! - in ecco.onestopshop.OnestopshopApplicationTests
-contextLoads(ecco.onestopshop.OnestopshopApplicationTests)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.IllegalStateException: Failed to load ApplicationContext
-Caused by: java.lang.IllegalStateException: Failed to introspect Class [ecco.onestopshop.services.UserService] from ClassLoader [sun.misc.Launcher$AppClassLoader@6bc7c054]
-Caused by: java.lang.NoClassDefFoundError: org/springframework/data/neo4j/repository/Neo4jRepository
-Caused by: java.lang.ClassNotFoundException: org.springframework.data.neo4j.repository.Neo4jRepository
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.422 s - in ecco.onestopshop.OnestopshopApplicationTests

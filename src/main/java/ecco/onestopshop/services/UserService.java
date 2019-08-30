@@ -105,8 +105,8 @@ public class UserService {
         neo4jUserRepository.clearTechnologies(userLoggedIn.getUsername());
     }
 
-    public ArrayList<User> matchUser(User userLoggedIn) {
+//    public ArrayList<User> matchUser(User userLoggedIn) {
 
-        return neo4jUserRepository.matchUser(userLoggedIn.getUsername());
-    }
+//        return neo4jUserRepository.matchUser(userLoggedIn.getUsername());
+//    }
 }

@@ -33,6 +33,12 @@ public class GetPageController {
         return "login";
     }
 
+    @RequestMapping(value = "/progressionAndUserTools")
+    public String progressionAndTool(){
+
+        return "progressionAndUserTools";
+    }
+
     @RequestMapping("/decisionPlanIntro")
     public String getDecisionPlanIntroPage() {
     	return "decisionPlanIntro";

@@ -39,6 +39,6 @@ public interface Neo4jUserRepository extends Neo4jRepository<User, Long> {
     @Query("MATCH (w:User{username:{0}}), (w)-[r:USES]->(:RenewableTechnology) DELETE r")
     void clearTechnologies(String username);
 
-    @Query("")
-    ArrayList<User> matchUser(String username);
+//    @Query("")
+//    ArrayList<User> matchUser(String username);
 }
