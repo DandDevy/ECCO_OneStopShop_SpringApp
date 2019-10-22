@@ -43,4 +43,7 @@ public interface Neo4jUserRepository extends Neo4jRepository<User, Long> {
 
     @Query("MATCH (w:User{username:{0}}), (u)-[r:LIVES_IN]->(:Location)<-[:LIVES_IN]-(otherU:User) RETURN otherU")
     Collection<User> matchUserByLocation(String username);
+
+    @Query("MATCH (w:User{username:{0}}), (u)-[r:USES]->(:RenewableTechnology)<-[:USES]-(otherU:User) RETURN otherU")
+    Collection<User> matchUserByTech(String username);
 }

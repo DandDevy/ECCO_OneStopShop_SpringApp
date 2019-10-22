@@ -109,7 +109,17 @@ public class UserService {
         ArrayList<User> matchedUsers = new ArrayList<User>();
 
         Collection<User> usersMatchedByLocation = neo4jUserRepository.matchUserByLocation(userLoggedIn.getUsername());
+        for(User matchedUser : usersMatchedByLocation){
+            if(matchedUser.compareTo(userLoggedIn) == 0)
+                usersMatchedByLocation.remove(matchedUser);
+        }
+        Collection<User> usersMatchedByTech = neo4jUserRepository.matchUserByTech(userLoggedIn.getUsername());
+        for(User matchedUser : usersMatchedByTech){
+            if(matchedUser.compareTo(userLoggedIn) == 0)
+                usersMatchedByTech.remove(matchedUser);
+        }
         System.out.println("usersMatchedByLocation with " + userLoggedIn + " are :" + usersMatchedByLocation);
+        System.out.println("usersMatchedByTech with " + userLoggedIn + " are :" + usersMatchedByTech);
         return matchedUsers;
     }
 

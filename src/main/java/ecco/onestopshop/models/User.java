@@ -26,7 +26,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 
 //@Entity
 @NodeEntity
-public class User {
+public class User implements Comparable{
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @GraphId
@@ -85,5 +85,16 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        int res = -1;
+
+        if(o instanceof User){
+            User otherUser = (User) o;
+            res = otherUser.getUsername().compareTo(this.getUsername());
+        }
+        return res;
     }
 }
