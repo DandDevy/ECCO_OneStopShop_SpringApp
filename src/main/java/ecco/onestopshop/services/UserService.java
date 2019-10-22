@@ -105,6 +105,14 @@ public class UserService {
         neo4jUserRepository.clearTechnologies(userLoggedIn.getUsername());
     }
 
+    public ArrayList<User> matchUser(User userLoggedIn) {
+        ArrayList<User> matchedUsers = new ArrayList<User>();
+
+        Collection<User> usersMatchedByLocation = neo4jUserRepository.matchUserByLocation(userLoggedIn.getUsername());
+        System.out.println("usersMatchedByLocation with " + userLoggedIn + " are :" + usersMatchedByLocation);
+        return matchedUsers;
+    }
+
 //    public ArrayList<User> matchUser(User userLoggedIn) {
 
 //        return neo4jUserRepository.matchUser(userLoggedIn.getUsername());
