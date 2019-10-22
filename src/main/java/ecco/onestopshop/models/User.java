@@ -93,7 +93,9 @@ public class User implements Comparable{
 
         if(o instanceof User){
             User otherUser = (User) o;
-            res = otherUser.getUsername().compareTo(this.getUsername());
+            boolean isSame = otherUser.getUsername().equals(this.getUsername());
+            if(isSame)
+                res = 0;
         }
         return res;
     }

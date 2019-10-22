@@ -108,18 +108,59 @@ public class UserService {
     public ArrayList<User> matchUser(User userLoggedIn) {
         ArrayList<User> matchedUsers = new ArrayList<User>();
 
-        Collection<User> usersMatchedByLocation = neo4jUserRepository.matchUserByLocation(userLoggedIn.getUsername());
-        for(User matchedUser : usersMatchedByLocation){
-            if(matchedUser.compareTo(userLoggedIn) == 0)
-                usersMatchedByLocation.remove(matchedUser);
+        Collection<User> usersMatchedByLocationAsCollection = neo4jUserRepository.matchUserByLocation(userLoggedIn.getUsername());
+        ArrayList<User> usersMatchedByLocationWithoutLoggedIn = new ArrayList<>();
+        for(User matchedUser : usersMatchedByLocationAsCollection){
+            if(matchedUser.compareTo(userLoggedIn) != 0)
+                usersMatchedByLocationWithoutLoggedIn.add(matchedUser);
         }
-        Collection<User> usersMatchedByTech = neo4jUserRepository.matchUserByTech(userLoggedIn.getUsername());
-        for(User matchedUser : usersMatchedByTech){
-            if(matchedUser.compareTo(userLoggedIn) == 0)
-                usersMatchedByTech.remove(matchedUser);
+
+        Collection<User> usersMatchedByTechAsCollection = neo4jUserRepository.matchUserByTech(userLoggedIn.getUsername());
+        ArrayList<User> usersMatchedByTechWithoutLoggedIn = new ArrayList<>();
+        for(User matchedUser : usersMatchedByTechAsCollection){
+            if(matchedUser.compareTo(userLoggedIn) != 0)
+                usersMatchedByTechWithoutLoggedIn.add(matchedUser);
         }
-        System.out.println("usersMatchedByLocation with " + userLoggedIn + " are :" + usersMatchedByLocation);
-        System.out.println("usersMatchedByTech with " + userLoggedIn + " are :" + usersMatchedByTech);
+        System.out.println("usersMatchedByLocation with " + userLoggedIn + " are :" + usersMatchedByLocationWithoutLoggedIn);
+        System.out.println("usersMatchedByTech with " + userLoggedIn + " are :" + usersMatchedByTechWithoutLoggedIn);
+
+
+        //keep cleaning
+
+
+        for(User userMatchedByLocation : usersMatchedByLocationWithoutLoggedIn){
+            for(User userMatchedByTech : usersMatchedByTechWithoutLoggedIn){
+                if(userMatchedByLocation.compareTo(userMatchedByTech) == 0) {
+                    matchedUsers.add(userMatchedByLocation);
+//                    usersMatchedByLocationWithoutLoggedIn.remove(userMatchedByLocation);
+//                    usersMatchedByTechWithoutLoggedIn.remove(userMatchedByTech);
+                }
+            }
+        }
+//        for(User userMatchedByLocation : usersMatchedByLocationWithoutLoggedIn){
+////            if(matchedUsers.size() == 0){
+////
+////            }
+//            for(int i = 0; i < matchedUsers.size(); i ++){
+//                System.out.println("matchedUsers ");
+//                if(userMatchedByLocation.compareTo(matchedUsers.get(i)) != 0){
+//                    matchedUsers.add(userMatchedByLocation);
+//                }
+//            }
+//        }
+////        matchedUsers.addAll(usersMatchedByLocationWithoutLoggedIn);
+//
+//        for(User userMatchedByTech : usersMatchedByTechWithoutLoggedIn){
+//            for(int i = 0; i < matchedUsers.size(); i ++){
+//                if(userMatchedByTech.compareTo(matchedUsers.get(i)) != 0){
+//                    matchedUsers.add(userMatchedByTech);
+//                }
+//            }
+//        }
+
+//        matchedUsers.addAll(usersMatchedByTechWithoutLoggedIn);
+
+        System.out.println("matchedUsers: " + matchedUsers);
         return matchedUsers;
     }
 

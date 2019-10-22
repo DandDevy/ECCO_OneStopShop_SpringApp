@@ -87,8 +87,12 @@ public class LoggedInUserController {
     @ResponseBody
     public String matchUser(){
         ArrayList<User> users = userService.matchUser(userLoggedIn);
-
-        return "asdasdasd";
+        StringBuilder stringOfUsers = new StringBuilder("Matched with (starting with most matched) :");
+        for(User user : users){
+            stringOfUsers.append(" username:  ").append(user.getUsername());
+        }
+        System.out.println("stringOfUsers : " + stringOfUsers);
+        return stringOfUsers.toString();
     }
 
     @RequestMapping(value = "/profilData", method = RequestMethod.POST)

@@ -125,9 +125,10 @@ $(document).ready(function (message){
             success: function(resultData) {
 
 
-                alert("update success res:" + resultData);
-
-
+                alert(resultData);
+                // $("#matchResponse").innerHTML="<button type=\"button\" class=\"btn btn-primary\" id=\"matchUser\">Request contact for matches :"+ resultData +" </button>"
+                const response =  "<hr><p>" + resultData +"</p><button type='button' class='btn btn-primary'>Request contact?</button> ";
+                document.getElementById("matchResponse").innerHTML=response;
             }
 
         });
