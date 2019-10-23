@@ -127,13 +127,28 @@ $(document).ready(function (message){
 
                 alert(resultData);
                 // $("#matchResponse").innerHTML="<button type=\"button\" class=\"btn btn-primary\" id=\"matchUser\">Request contact for matches :"+ resultData +" </button>"
-                const response =  "<hr><p>" + resultData +"</p><button type='button' class='btn btn-primary'>Request contact?</button> ";
+                const response =  "<hr><p>" + resultData +"</p><button type='button' class='btn btn-primary' id='setMatch' >Request contact?</button> ";
                 document.getElementById("matchResponse").innerHTML=response;
             }
 
         });
 
     });
+
+    $("#setMatch").click(function (message) {
+            $.ajax({
+                url: "/setMatch",
+                type: 'GET',
+
+                success: function(resultData) {
+
+
+                    alert(resultData);
+                }
+
+            });
+
+        });
 
     $("#profilConfirmationBtn").click(function (message) {
 

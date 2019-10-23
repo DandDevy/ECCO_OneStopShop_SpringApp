@@ -164,6 +164,12 @@ public class UserService {
         return matchedUsers;
     }
 
+    public void setMatch(User userLoggedIn, ArrayList<User> othersThatCouldBeMatchedWith) {
+        for(User user : othersThatCouldBeMatchedWith){
+            neo4jUserRepository.setMatch(userLoggedIn.getUsername(), user.getUsername());
+        }
+    }
+
 //    public ArrayList<User> matchUser(User userLoggedIn) {
 
 //        return neo4jUserRepository.matchUser(userLoggedIn.getUsername());

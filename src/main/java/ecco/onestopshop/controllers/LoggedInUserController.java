@@ -20,6 +20,7 @@ public class LoggedInUserController {
     private User userLoggedIn;
 
     private boolean userCanEnter;
+    private ArrayList<User> othersThatCouldBeMatchedWith;
 
     @Autowired
     private UserService userService;
@@ -86,9 +87,23 @@ public class LoggedInUserController {
     @RequestMapping(value = "/matchUser")
     @ResponseBody
     public String matchUser(){
-        ArrayList<User> users = userService.matchUser(userLoggedIn);
-        StringBuilder stringOfUsers = new StringBuilder("Matched with (starting with most matched) :");
-        for(User user : users){
+        ArrayList<User> othersThatCouldBeMatchedWith = userService.matchUser(userLoggedIn);
+        StringBuilder stringOfUsers = new StringBuilder("Can with (starting with most matches) :");
+        for(User user : othersThatCouldBeMatchedWith){
+            stringOfUsers.append(" username:  ").append(user.getUsername());
+        }
+        System.out.println("stringOfUsers : " + stringOfUsers);
+        return stringOfUsers.toString();
+    }
+
+    @RequestMapping(value = "/setMatch")
+    @ResponseBody
+    public String setMatch(){
+
+
+        StringBuilder stringOfUsers = new StringBuilder("Matched with :");
+        userService.setMatch(userLoggedIn, othersThatCouldBeMatchedWith);
+        for(User user : othersThatCouldBeMatchedWith){
             stringOfUsers.append(" username:  ").append(user.getUsername());
         }
         System.out.println("stringOfUsers : " + stringOfUsers);
