@@ -22,6 +22,11 @@ public class GetPageController {
         return "learn";
     }
 
+    @RequestMapping("/resources")
+    public String resources(){
+        return "resources";
+    }
+
     @RequestMapping("/registration")
     public String registration(){
         return "registration";

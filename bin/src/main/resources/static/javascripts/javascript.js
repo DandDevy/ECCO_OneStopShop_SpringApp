@@ -110,21 +110,21 @@ function getFinancialHelp() {
 
     if(countrySelectedText == 'Ireland'){
         if(energySelectedText == 'any') {
-            responseText += "&#8226;  <a href='https://www.seai.ie/grants/'>SEAI.ie</a> <br>";
-            responseText += "&#8226;  <a href='https://solarstream.ie/financing/'>solarstream.ie</a> <br>";
-            responseText += "&#8226;  <a href='https://enerpower.ie/finance/grant/'>solar enerpower.ie</a> <br>";
-            responseText += "&#8226;  <a href='https://www.energy.gov/eere/funding/apply-eere-funding-opportunities'>solar energy.gov</a> <br>";
-            responseText += "&#8226;  <a href='https://www.irena.org/financeinvestment/Financing-Renewable-Energy-Projects'>solar irena.org</a> <br>";
-            responseText += "&#8226;  <a href='http://turbotricity.com/product/wind-turbines/grants/'>turbotricity.com</a> <br>";
-            responseText += "&#8226;  <a href='https://www.esb.ie/our-businesses/generation-energy-trading-new/wind-energy/wind-farm-community-funds'>wind esb.ie</a> <br>";
-            responseText += "&#8226;  <a href='https://www.windfarmcommunityfunds.ie/'>windfarmcommunityfunds.ie</a> <br>";
-            responseText += "&#8226;  <a href='https://www.seai.ie/sustainable-solutions/support-scheme-renewable-/'>wind SEAI grant</a> <br>";
-            responseText += "&#8226;  <a href='https://www.biomassengineering.ie/support-scheme-for-renewable-heat/'>biomassengineering.ie</a> <br>";
-            responseText += "&#8226;  <a href='https://enerpower.ie/finance/grant/support-scheme-for-renewable-heat/#'>enerpower.ie</a> <br>";
-            responseText += "&#8226;  <a href='https://www.seai.ie/sustainable-solutions/support-scheme-renewable-/'>SEAI grant</a> <br>";
-            responseText += "&#8226;  <a href='https://www.biomassengineering.ie/support-scheme-for-renewable-heat/'>biomassengineering.ie</a> <br>";
-            responseText += "&#8226;  <a href='https://enerpower.ie/finance/grant/support-scheme-for-renewable-heat/#'>enerpower.ie</a> <br>";
-            responseText += "&#8226;  <a href='https://www.seai.ie/grants/'>geothermal SEAI grant</a> <br>";
+            &#8226;  <a href='https://www.seai.ie/grants/'>SEAI.ie</a> <br>";
+            &#8226;  <a href='https://solarstream.ie/financing/'>solarstream.ie</a> <br>";
+            &#8226;  <a href='https://enerpower.ie/finance/grant/'>solar enerpower.ie</a> <br>";
+            &#8226;  <a href='https://www.energy.gov/eere/funding/apply-eere-funding-opportunities'>solar energy.gov</a> <br>";
+            &#8226;  <a href='https://www.irena.org/financeinvestment/Financing-Renewable-Energy-Projects'>solar irena.org</a> <br>";
+            &#8226;  <a href='http://turbotricity.com/product/wind-turbines/grants/'>turbotricity.com</a> <br>";
+            &#8226;  <a href='https://www.esb.ie/our-businesses/generation-energy-trading-new/wind-energy/wind-farm-community-funds'>wind esb.ie</a> <br>";
+            &#8226;  <a href='https://www.windfarmcommunityfunds.ie/'>windfarmcommunityfunds.ie</a> <br>";
+            &#8226;  <a href='https://www.seai.ie/sustainable-solutions/support-scheme-renewable-/'>wind SEAI grant</a> <br>";
+            &#8226;  <a href='https://www.biomassengineering.ie/support-scheme-for-renewable-heat/'>biomassengineering.ie</a> <br>";
+            &#8226;  <a href='https://enerpower.ie/finance/grant/support-scheme-for-renewable-heat/#'>enerpower.ie</a> <br>";
+            &#8226;  <a href='https://www.seai.ie/sustainable-solutions/support-scheme-renewable-/'>SEAI grant</a> <br>";
+            &#8226;  <a href='https://www.biomassengineering.ie/support-scheme-for-renewable-heat/'>biomassengineering.ie</a> <br>";
+            &#8226;  <a href='https://enerpower.ie/finance/grant/support-scheme-for-renewable-heat/#'>enerpower.ie</a> <br>";
+            &#8226;  <a href='https://www.seai.ie/grants/'>geothermal SEAI grant</a> <br>";
             responseText += "&#8226;  <a href='https://enerpower.ie/finance/grant/support-scheme-for-renewable-heat/#'>enerpower.ie/geothermal</a> <br>";
             responseText += "&#8226;  <a href='https://ireland.thermia.com/grants-and-incentives/'>ireland.thermia.com</a> <br>";
             responseText += "&#8226;  <a href='http://glenergy.ie/heat-pump-grants/'>glenergy.ie</a> <br>";

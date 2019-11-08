@@ -88,9 +88,9 @@ public class LoggedInUserController {
     @ResponseBody
     public String matchUser(){
         ArrayList<User> othersThatCouldBeMatchedWith = userService.matchUser(userLoggedIn);
-        StringBuilder stringOfUsers = new StringBuilder("Can with (starting with most matches) :");
+        StringBuilder stringOfUsers = new StringBuilder("Suggested connections :");
         for(User user : othersThatCouldBeMatchedWith){
-            stringOfUsers.append(" username:  ").append(user.getUsername());
+            stringOfUsers.append(" USER:  ").append(user.getUsername());
         }
         System.out.println("stringOfUsers : " + stringOfUsers);
         return stringOfUsers.toString();
