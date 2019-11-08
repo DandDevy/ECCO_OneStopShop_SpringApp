@@ -27,6 +27,11 @@ public class GetPageController {
         return "resources";
     }
 
+    @RequestMapping("/beacons")
+    public String beacons(){
+        return "beacons";
+    }
+
     @RequestMapping("/registration")
     public String registration(){
         return "registration";

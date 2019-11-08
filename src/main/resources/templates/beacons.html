@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:pth="http://www.w3.org/1999/html">
 <head>
-  <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <title>ECCO one stop shop</title>
 
     <!-- CSS (load bootstrap from a CDN) -->
@@ -12,13 +13,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <link rel='stylesheet' href="/stylesheets/style.css" />
-    <link rel='stylesheet' href="/stylesheets/decisionPlan.css" />
     <script type="text/javascript" src="/javascripts/javascript.js"></script>
 </head>
-
 <body>
-	<header>
-    
+<header>
+    <header>
         <div class="container">
             <div class="page-header">
                 <a href="/"><h1>ECCO one stop shop</h1></a>
@@ -39,10 +38,9 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li id="home"><a href="/">HOME</a></li>
                         <li id="beacons"><a href="/beacons">BEACONS</a></li>
-                        <li id="ghg"><a href="http://localhost:8081/">GHG tool</a></li>
+                        <li id="ghg"><a href="http://localhost:8081/">GHG TOOL</a></li>
                         <li id="about_us"><a href="https://www.nweurope.eu/projects/project-search/ecco-creating-new-local-energy-community-co-operatives/">ABOUT US</a></li>
                         <li id="resources"><a href="resources">RESOURCES</a></li>
-                        <li id="techDecision"><a href="decisionPlanIntro">TECH DECISION PLAN</a>
                         <li id="login"><a href="login">LOGIN</a></li>
                         <li id="register"><a href="registration">REGISTER</a></li>
                     </ul>
@@ -53,37 +51,22 @@
             </div>
         </nav>
     </header>
-	<main>
-	<section class="container">
 
-        <section class="jumbotron">
-        	<h1>Tech decision plan: Beginners</h1>   
-        	<p>
-        		The tech decision plan is an online tool that helps you to find the correct renewable energy for your projects with only a couple of questions.
-        		<br>
-        		Please, if you want to use this tool just answer the following questions and press submit.
-        	</p>
-        	
-        	  
-            <form action="#" th:action="@{/processBeginners}" th:object="${userSelection}"  method="post" >
-				<fieldset th:each="question: ${questions}">
-				<h4 th:text="${question.questionText}"></h4>
-				<input type="radio" th:name="${questions.indexOf(question)}" th:each="answer: ${question.answerList}" th:value="${answer.getRadioButtonBeginnerCode()}"
-				 th:text="${answer.answerText}" th:field="*{userSelection[__${questions.indexOf(question)}__].theAnswer}"> <br>
-				</fieldset>
-				<span ></span>
-				<button type="submit">Check it</button>
-			</form>	
-            
-        </section>
-         <form class="goBackButton" action="#" th:action="@{/}"  method="post">
-        		<button type="submit">Home</button>
-        </form>
-        
-    </section>
-	
-	</main>
-	<footer>
+</header>
+<main>
+    <div class="container">
+
+        <div class="jumbotron">
+            <h2>Beacons</h2>
+           <p>The beacons prove to us that local energy community co-operatives are possible and are guide posts
+           for what can be achieved. We are very proud to be working with them.</p>
+
+
+        </div>
+
+    </div>
+</main>
+<footer>
     <hr>
     <p class="text-center text-muted">© ECCO project</p>
 </footer>
